@@ -1,0 +1,77 @@
+/* .container {
+    max-width: 1000px;
+    margin: auto;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+  
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  .table-responsive {
+    margin-top: 20px;
+    border-radius: 5px;
+    overflow-x: auto;
+  }
+  
+  .table {
+    width: 100%;
+    min-width: 600px; /* Adjust based on your content */
+  /*}
+  
+  .table th, .table td {
+    vertical-align: middle;
+  }
+  
+  .btn {
+    margin-top: 10px;
+  }
+  
+  .form-select {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+   */
+
+   .container {
+    max-width: 1000px;
+    margin: auto;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+  
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  .table-responsive {
+    margin-top: 20px;
+    border-radius: 5px;
+    overflow-x: auto;
+  }
+  
+  .table {
+    width: 100%;
+    min-width: 600px; /* Adjust based on your content */
+  }
+  
+  .table th, .table td {
+    vertical-align: middle;
+  }
+  
+  .btn {
+    margin-top: 10px;
+  }
+  
+  .form-select {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  

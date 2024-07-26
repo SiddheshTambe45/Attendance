@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+// import HomePage from './Pages/Faculty/HomePage/HomePage'
+// import OffcanvasNavbar from './Components/OffcanvasNavbar'
+// import SessionUpdate from './Pages/Faculty/SessionUpdate/SessionUpdate'
+// import SessionEdit from './Pages/Faculty/SessionUpdate/SessionEdit'
+// import ReportPage from './Pages/Faculty/ReportPage/ReportPage'
+// import Leave from './Pages/Faculty/LeaveMessagePage/Leave'
+import Faculty from './Pages/Faculty/Faculty'
+import Hod from './Pages/HOD/Hod'
+import Principal from './Pages/Principal/Principal'
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <>
+      <BrowserRouter>
+        <Routes>
 
-export default App;
+          <Route path='/faculty/*' element={<Faculty />} />
+          <Route path='/hod/*' element={<Hod />} />
+          <Route path='/principal/*' element={<Principal />} />
+
+        </Routes>
+      </BrowserRouter>
+    </>
+  )
+}

@@ -1,0 +1,74 @@
+.attendance-table {
+  border-collapse: separate; /* Allows better styling with borders */
+  border-spacing: 0;
+  width: 100%;
+  margin-top: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+}
+
+.attendance-table th, .attendance-table td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px; /* Increase padding for better spacing */
+  border: 1px solid #ddd;
+  background-color: #ffffff;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.attendance-table th {
+  background-color: #f9d637 !important; /* Header background color */
+  color: #ffffff; /* Header text color */
+  position: sticky;
+  top: 0; /* Make header sticky */
+  z-index: 2;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1); /* Shadow to separate header */
+  outline:2px solid black;
+}
+
+.attendance-table td:hover {
+  background-color: #f1f1f1; /* Light hover effect for cells */
+}
+
+.attendance-table .sticky-col {
+  position: sticky;
+  background-color: #f9f9f9; /* Slightly different background to distinguish */
+  z-index: 999;
+  box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.1);
+  border: 2px solid black;
+  outline:2px solid black;
+}
+
+.attendance-table .prn-col {
+  left: 0;
+  border-right: 1px solid #ddd; /* Consistent border on the right */
+}
+
+.attendance-table .name-col {
+  left: 150px; /* Ensure this matches the width of the PRN column */
+  border-right: 1px solid #ddd; /* Consistent border on the right */
+}
+
+.table-responsive {
+  overflow-x: auto;
+  margin-top: 1rem;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f7f9fc; /* Slightly different color for odd rows */
+}
+
+tbody tr:nth-child(even) {
+  background-color: #ffffff; /* White color for even rows */
+}
+
+.outline-class{
+  border: 2px solid black !important;
+  outline:2px solid black;
+}
+
+.attendance-table td{
+  outline:2px solid black;
+}

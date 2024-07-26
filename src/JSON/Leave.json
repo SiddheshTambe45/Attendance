@@ -1,0 +1,26 @@
+[
+    {
+        "studentName" : "Sameer Yadav",
+        "studentId" : "123456789",
+        "message" : "HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI ",
+        "duration":["2024-12-12","2024-12-18"]
+    },
+    {
+        "studentName" : "Sameer Shetty",
+        "studentId" : "1234567890",
+        "message" : "HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI ",
+        "duration":["2024-12-13","2024-12-17"]
+    },
+    {
+        "studentName" : "Sarah Lee",
+        "studentId" : "123456",
+        "message" : "Requesting medical leave.",
+        "duration" : ["2024-06-28","2024-07-05"]
+    },
+    {
+        "studentName" : "David Patel",
+        "studentId" : "987654",
+        "message" : "I am writing to request a medical leave of absence from classes for one week, starting tomorrow, June 28th, 2024, and ending on July 5th, 2024. I will be unable to attend classes in person.",
+        "duration" : ["2024-06-28","2024-07-05"]
+    }
+]
