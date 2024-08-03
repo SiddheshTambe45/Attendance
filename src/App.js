@@ -1,20 +1,19 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-// import HomePage from './Pages/Faculty/HomePage/HomePage'
-// import OffcanvasNavbar from './Components/OffcanvasNavbar'
-// import SessionUpdate from './Pages/Faculty/SessionUpdate/SessionUpdate'
-// import SessionEdit from './Pages/Faculty/SessionUpdate/SessionEdit'
-// import ReportPage from './Pages/Faculty/ReportPage/ReportPage'
-// import Leave from './Pages/Faculty/LeaveMessagePage/Leave'
 import Faculty from './Pages/Faculty/Faculty'
 import Hod from './Pages/HOD/Hod'
 import Principal from './Pages/Principal/Principal'
+import SignUp from './Pages/Authentication/SignUp/SignUp'
+import Login from './Pages/Authentication/Login/Login'
 
 export default function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
+
+          <Route path='/signup' element={<SignUp />} />
+          <Route path='/login' element={<Login />} />
 
           <Route path='/faculty/*' element={<Faculty />} />
           <Route path='/hod/*' element={<Hod />} />

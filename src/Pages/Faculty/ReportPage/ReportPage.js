@@ -15,7 +15,7 @@ const ReportPage = () => {
 
 
   return (
-    <div>
+    <div className=''>
       <ReportCriteriaSelection setAttendanceData={setAttendanceData} setCriteria={setCriteria} criteria={criteria} />
       <Report attendanceData={attendanceData} />  { /* criteria={criteria}  */}
     </div>

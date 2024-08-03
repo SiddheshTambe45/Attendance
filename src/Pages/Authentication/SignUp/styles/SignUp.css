@@ -1,0 +1,6 @@
+
+@media screen and (max-width:500px) {
+    .signUp .container{
+        min-height: 100vh !important;
+    }
+}

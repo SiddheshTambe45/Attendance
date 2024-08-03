@@ -77,7 +77,7 @@ export default function HodReport() {
 
   // Criteria state management
   const [selectedSemester, setSelectedSemester] = useState('');
-  const [selectedBranch, setSelectedBranch] = useState('IT');
+  const [selectedBranch, setSelectedBranch] = useState('IOT');
   const [selectedDivision, setSelectedDivision] = useState('');
   const [selectedBatch, setSelectedBatch] = useState('');
 

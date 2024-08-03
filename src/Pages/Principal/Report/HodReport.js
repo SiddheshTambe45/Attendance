@@ -5,7 +5,7 @@ import ShowReport from './ShowReport';
 // import Students from '../../JSON/Students.json'; // Assuming you have imported the JSON data
 import axios from 'axios';
 
-export default function HodReport() {
+export default function PrincipalReport() {
   const [attendance, setAttendance] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');

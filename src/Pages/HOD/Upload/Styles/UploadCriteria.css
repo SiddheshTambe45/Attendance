@@ -1,0 +1,59 @@
+.upload-button-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .upload-button {
+    background-color: #007bff; /* Blue background */
+    color: #ffffff; /* White text */
+    border: none; /* Remove default border */
+    padding: 10px 20px; /* Adjust padding */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    display: flex; /* Flexbox for alignment */
+    align-items: center; /* Vertically center icon and text */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background color transition */
+  }
+  
+  .upload-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  .upload-button .icon {
+    margin-right: 8px; /* Space between icon and text */
+  }
+  
+  .upload-button .icon svg {
+    fill: #ffffff; /* Icon color */
+  }
+  
+  /* Hide the default file input */
+  .upload-button-container input[type="file"] {
+    display: none;
+  }
+  
+  /* Align the container and button */
+.upload-button-container {
+    display: flex;
+    align-items: end;
+  }
+  
+  /* Adjust the margin to align with the other elements */
+  .upload-button {
+    margin-top: 0;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Adjust the margin for file input */
+  .upload-button-container input[type="file"] {
+    margin-top: 0;
+  }
+  
+  .upload-button-col{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+  }

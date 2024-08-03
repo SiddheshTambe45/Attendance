@@ -171,19 +171,33 @@ const HeaderCriteria = ({
   useEffect(() => {
     const fetchCriteria = async () => {
       try {
-        const response = await axios.get(`http://localhost:4545/hod/getCriteria?branch=${branches}`);
-        const fetchedCriteria = response.data;
-        setCriteria(fetchedCriteria);
-
-        // Set Semester Options
-        setSemesterOptions(fetchedCriteria.semesters);
+        console.log("Fetching criteria for branch:",branches,7);
+        const response = await axios.get('http://localhost:4545/hod/getCriteria', {
+          params:{
+            branch:branches
+          }
+        });
+        console.log("Criteria response:", response.data);
+        
+        // Check if the response data contains the expected fields
+        if (response.data.semesters && response.data.divisions && response.data.batches) {
+          setCriteria(response.data);
+  
+          // Set Semester Options
+          setSemesterOptions(response.data.semesters);
+        } else {
+          console.error('Invalid response format:', response.data);
+          setErrorMsg('Invalid response format from the server');
+        }
       } catch (err) {
+        console.error('Error fetching criteria:', err);
         setErrorMsg('Failed to fetch criteria');
       }
     };
-
+  
     fetchCriteria();
   }, [branches]);
+  
 
   useEffect(() => {
     if (criteria && selectedSemester) {
