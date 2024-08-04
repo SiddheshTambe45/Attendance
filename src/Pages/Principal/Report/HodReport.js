@@ -33,7 +33,8 @@ export default function PrincipalReport() {
           branch:selectedBranch,
           division:selectedDivision,
           batch:selectedBatch
-        }
+        },
+        withCredentials:true
       });
       console.log(response.data[0].subjects)
       setAttendance(response.data)

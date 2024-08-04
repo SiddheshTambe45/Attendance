@@ -27,7 +27,8 @@ const AttendanceUpdate = () => {
   // Function to fetch criteria options
   const fetchCriteriaOptions = async () => {
     try {
-      const response = await axios.get(`http://localhost:4545/faculty/getFacultyTeachingData?faculty_id=${faculty_id}`);
+      const response = await axios.get(`http://localhost:4545/faculty/getFacultyTeachingData?faculty_id=${faculty_id}`,{
+        withCredentials:true });
       const data = response.data;
       setCriteriaData(data);
 
@@ -159,7 +160,8 @@ const AttendanceUpdate = () => {
           division: division,
           batch: batch,
           subject: subject,
-        }
+        },
+        withCredentials:true
       });
       const data = response.data.attendance;
       console.log(data);
@@ -222,7 +224,8 @@ const AttendanceUpdate = () => {
         subject: subject,
         faculty_id: faculty_id,
         attendance: attendanceRecords
-      });
+      },{
+      withCredentials:true});
       // Handle success scenario
       alert('Attendance records updated successfully!');
       setAttendanceRecords([]);

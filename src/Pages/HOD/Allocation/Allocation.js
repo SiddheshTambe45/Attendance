@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Styles/Allocation.css';
 import { BsPlus, BsPencil, BsDash } from 'react-icons/bs';
+import { useSelector } from 'react-redux';
 
 const Allocation = () => {
-  const hodDepartment = "IOT"; // This is your department
+  const { department } = useSelector((state) => state.auth); // This is your department
+  const hodDepartment = department;
+
   const [selectedBranch, setSelectedBranch] = useState('');
   const [currentSemester, setCurrentSemester] = useState('');
   const [subjects, setSubjects] = useState([]); // State for subjects
@@ -28,7 +31,8 @@ const Allocation = () => {
     const fetchCriteria = async () => {
       try {
         const response = await axios.get('http://localhost:4545/hod/getCriteriaFacSub', {
-          params: { department: hodDepartment }
+          params: { department: hodDepartment },
+          withCredentials: true 
         });
         const { semesters, divisions, batches } = response.data;
         setSemesters(semesters || []);
@@ -46,7 +50,8 @@ const Allocation = () => {
   const fetchSubjectsAndFaculty = async () => {
     try {
       const response = await axios.get('http://localhost:4545/hod/getSubjectsAndFaculty', {
-        params: { branch: hodDepartment, semester: currentSemester, division: selectedDivision, batch: selectedBatch }
+        params: { branch: hodDepartment, semester: currentSemester, division: selectedDivision, batch: selectedBatch },
+        withCredentials: true 
       });
       const { faculty, subjects, allDepartments } = response.data;
 
@@ -67,7 +72,8 @@ const Allocation = () => {
 
     try {
       const response = await axios.get('http://localhost:4545/hod/getFacultyByDepartment', {
-        params: { department }
+        params: { department },
+        withCredentials: true 
       });
 
       const faculty = response.data;
@@ -196,7 +202,7 @@ const Allocation = () => {
         .filter(item => item.subject_name && item.subject_id && item.subject_type && item.faculty_id);
         
       console.log(dataToSend)
-      await axios.post('http://localhost:4545/hod/allocateFacultyToSubject', dataToSend);
+      await axios.post('http://localhost:4545/hod/allocateFacultyToSubject', dataToSend, { withCredentials: true });
       alert('Changes applied successfully');
       resetForm();
     } catch (error) {

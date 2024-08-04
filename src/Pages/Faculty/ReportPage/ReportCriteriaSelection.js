@@ -16,7 +16,9 @@ const ReportCriteriaSelection = ({ setAttendanceData, setCriteria, criteria }) =
     const fetchCriteria = async () => {
       try {
         const faculty_id = "F030";
-        const response = await axios.get(`http://localhost:4545/faculty/getFacultyTeachingData?faculty_id=${faculty_id}`);
+        const response = await axios.get(`http://localhost:4545/faculty/getFacultyTeachingData?faculty_id=${faculty_id}`,{
+          withCredentials:true
+        });
         const data = response.data;
         setCriteria({
           semesters: data.semesters || [],
@@ -81,7 +83,8 @@ const ReportCriteriaSelection = ({ setAttendanceData, setCriteria, criteria }) =
         batch: batch || undefined
       };
   
-      const response = await axios.get('http://localhost:4545/faculty/getParticularData', { params });
+      const response = await axios.get('http://localhost:4545/faculty/getParticularData', { params,
+        withCredentials:true });
   
       const studentsData = response.data.attendanceData || [];
       console.log(studentsData);

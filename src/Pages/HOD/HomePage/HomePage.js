@@ -19,19 +19,19 @@ export default function HomePage() {
                 <div className='d-flex justify-content-center flex-column align-items-center p-5'>
                     <Link to='/hod/report' >
                         <button className='btn' style={{fontSize:'3rem'}}>
-                            Attendance Update
+                            Report Page
                         </button>
                     </Link>
 
                     <Link to='/hod/allocation' >
                         <button className='btn' style={{fontSize:'3rem'}}>
-                            Report Page
+                            Allocation Fac-Sub
                         </button>
                     </Link>
 
                     <Link to='/hod/upload' >
                         <button className='btn' style={{fontSize:'3rem'}}>
-                            Leave Page
+                            Upload Students
                         </button>
                     </Link>
                 </div>

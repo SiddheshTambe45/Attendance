@@ -1,155 +1,10 @@
 
-// import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
-
-// const HeaderCriteria = ({
-//   selectedSemester,
-//   setSelectedSemester,
-//   selectedBranch,
-//   selectedDivision,
-//   setSelectedDivision,
-//   selectedBatch,
-//   setSelectedBatch,
-//   onFetchAttendance,
-// }) => {
-//   const [branches, setBranches] = useState(selectedBranch);
-//   const [semesterOptions,setSemesterOptions] = useState([]); // ['1', '2', '3', '4'];
-//   const [divisionOptions,setDivisionOptions] =  useState([]); // ['A', 'B', 'C'];
-//   const [batchOptions,setBatchOptions] = useState([]); // ['batch1', 'batch2', 'batch3'];
-//   const [error, setErrorMsg] = useState('');
-
-
-
-//   useEffect(() => {
-//     const fetchCriteria = async () => {
-//       try {
-//         // Simulate fetching criteria
-//         const response = await axios.get(`http://localhost:4545/hod/getCriteria?branch=${selectedBranch}`);
-//         // console.log(response.data)
-//         const data = response.data
-//         // const data = {
-//         //   branches: ['CE', 'IT', 'AIDS', 'AIML', 'CSE(IOT)', 'ECS', 'EXTC', 'Mech'],
-//         // };
-//         setSemesterOptions(data.semester);
-//         setBatchOptions(data.batch);
-//         setDivisionOptions(data.division);
-//       } catch (err) {
-//         setErrorMsg(err.toString());
-//       }
-//     };
-
-//     fetchCriteria();
-//   }, []);
-
-//   const handleGetData = () => {
-//     if (!selectedSemester  || !selectedDivision || !selectedBatch) {
-//       setErrorMsg('Please select all options (Year, Branch, Division, Batch) to fetch data.');
-//       return;
-//     }
-//     onFetchAttendance(); // Criteria are now passed automatically since they're managed in FacultyDashboard
-//     setErrorMsg('');
-//   };
-
-  
-
-//   return (
-//     <div className="container mt-4">
-//       <div className="row">
-//         <div className="col">
-//           <label htmlFor="semester" className="form-label">
-//             Semester:
-//           </label>
-//           <select
-//             className="form-select"
-//             id="semester"
-//             value={selectedSemester}
-//             onChange={(e) => setSelectedSemester(e.target.value)}
-//           >
-//             <option value="">Select Semester</option>
-//             {semesterOptions && semesterOptions.map((semester) => (
-//               <option key={semester} value={semester}>{`SEM ${semester}`}</option>
-//             ))}
-//           </select>
-//         </div>
-//         {/* <div className="col">
-//           <label htmlFor="branch" className="form-label">
-//             Branch:
-//           </label>
-//           <select
-//             className="form-select"
-//             id="branch"
-//             value={selectedBranch}
-//             onChange={(e) => setSelectedBranch(e.target.value)}
-//           >
-//             <option value="">Select Branch</option>
-//             {branches.map((branch, idx) => (
-//               <option key={branch} value={branch}>
-//                 {branch}
-//               </option>
-//             ))}
-//           </select>
-//         </div> */}
-//         <div className="col">
-//           <label htmlFor="division" className="form-label">
-//             Division:
-//           </label>
-//           <select
-//             className="form-select"
-//             id="division"
-//             value={selectedDivision}
-//             onChange={(e) => setSelectedDivision(e.target.value)}
-//           >
-//             <option value="">Select Division</option>
-//             {divisionOptions && divisionOptions.map((division) => (
-//               <option key={division} value={division}>
-//                 {division}
-//               </option>
-//             ))}
-//           </select>
-//         </div>
-//         <div className="col">
-//           <label htmlFor="batch" className="form-label">
-//             Batch:
-//           </label>
-//           <select
-//             className="form-select"
-//             id="batch"
-//             value={selectedBatch}
-//             onChange={(e) => setSelectedBatch(e.target.value)}
-//           >
-//             <option value="">Select Batch</option>
-//             {batchOptions && batchOptions.map((batch) => (
-//               <option key={batch} value={batch}>
-//                 {batch}
-//               </option>
-//             ))}
-//           </select>
-//         </div>
-//         <div className="col-auto align-self-end">
-//           <button className="btn btn-primary" onClick={handleGetData}>
-//             Get Data
-//           </button>
-//         </div>
-//       </div>
-//       {error && (
-//         <div className="row mt-2">
-//           <div className="col">
-//             <div className="alert alert-danger" role="alert">
-//               {error}
-//             </div>
-//           </div>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default HeaderCriteria;
-
 
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+// import axiosInstance from '../../../Utils/AxiosInstance';
+// import apiClient from '../../../Utils/ApiClient'; // Import the configured apiClient
 
 const HeaderCriteria = ({
   selectedSemester,
@@ -168,21 +23,31 @@ const HeaderCriteria = ({
   const [batchOptions, setBatchOptions] = useState([]);
   const [error, setErrorMsg] = useState('');
 
+
   useEffect(() => {
     const fetchCriteria = async () => {
       try {
-        console.log("Fetching criteria for branch:",branches,7);
         const response = await axios.get('http://localhost:4545/hod/getCriteria', {
-          params:{
-            branch:branches
-          }
+          params: {
+            branch: branches
+          },
+          withCredentials: true 
         });
-        console.log("Criteria response:", response.data);
-        
+
+        // const response = await axiosInstance.get('http://localhost:4545/hod/getCriteria', {
+        //   params: { branch: branches },
+        // });
+
+        // const response = await apiClient.get('http://localhost:4545/hod/getCriteria', {
+        //   params:{
+        //     branch:branches
+        //   }
+        // });
+
         // Check if the response data contains the expected fields
         if (response.data.semesters && response.data.divisions && response.data.batches) {
           setCriteria(response.data);
-  
+
           // Set Semester Options
           setSemesterOptions(response.data.semesters);
         } else {
@@ -194,10 +59,10 @@ const HeaderCriteria = ({
         setErrorMsg('Failed to fetch criteria');
       }
     };
-  
+
     fetchCriteria();
   }, [branches]);
-  
+
 
   useEffect(() => {
     if (criteria && selectedSemester) {
