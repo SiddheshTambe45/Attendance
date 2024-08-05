@@ -45,9 +45,36 @@
 
 
 
+// // src/components/PrivateRoute.js
+// import React from 'react';
+// import { Navigate } from 'react-router-dom';
+// import { useSelector } from 'react-redux';
+
+// const roleHomePaths = {
+//   Faculty: '/faculty',
+//   HOD: '/hod',
+//   Principal: '/principal'
+// };
+
+// const PrivateRoute = ({ element: Element, allowedRoles }) => {
+//   const { role } = useSelector((state) => state.auth);
+
+//   // Check if the user's role is allowed
+//   if (allowedRoles.includes(role)) {
+//     return <Element />;
+//   } else {
+//     const homePath = roleHomePaths[role] || '/login';
+//     return <Navigate to={homePath} />;
+//   }
+// };
+
+// export default PrivateRoute;
+
+
+
 // src/components/PrivateRoute.js
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const roleHomePaths = {
@@ -56,17 +83,19 @@ const roleHomePaths = {
   Principal: '/principal'
 };
 
-const PrivateRoute = ({ element: Element, allowedRoles }) => {
+const PrivateRoute = ({ allowedRoles }) => {
   const { role } = useSelector((state) => state.auth);
 
-  // Check if the user's role is allowed
-  if (allowedRoles.includes(role)) {
-    return <Element />;
-  } else {
-    const homePath = roleHomePaths[role] || '/login';
-    return <Navigate to={homePath} />;
+  if (!role) {
+    return <Navigate to="/login" replace />;
   }
+
+  if (!allowedRoles.includes(role)) {
+    const homePath = roleHomePaths[role] || '/login';
+    return <Navigate to={homePath} replace />;
+  }
+
+  return <Outlet />;
 };
 
 export default PrivateRoute;
-
