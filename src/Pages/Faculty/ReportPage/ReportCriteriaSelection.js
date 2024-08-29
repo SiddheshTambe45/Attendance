@@ -1,10 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import axiosInstance from '../../../Utils/AxiosInstance'
+import { useSelector } from 'react-redux';
 
 
 const ReportCriteriaSelection = ({ setAttendanceData, setCriteria, criteria }) => {
+
+  const { faculty_id } = useSelector((state) => state.auth);
+
   const [semester, setSemester] = useState('');
   const [branch, setBranch] = useState('');
   const [subject, setSubject] = useState('');
@@ -17,7 +20,7 @@ const ReportCriteriaSelection = ({ setAttendanceData, setCriteria, criteria }) =
   useEffect(() => {
     const fetchCriteria = async () => {
       try {
-        const faculty_id = "F030";
+        // const faculty_id = "F030";
         // const response = await axios.get(`http://localhost:4545/faculty/getFacultyTeachingData?faculty_id=${faculty_id}`,{
         //   withCredentials:true
         // });

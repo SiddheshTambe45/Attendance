@@ -1,7 +1,6 @@
 import React, { useState,useEfect } from 'react';
 import ReportCriteriaSelection from './ReportCriteriaSelection';
 import Report from './Report';
-import axios from 'axios';
 
 const ReportPage = () => {
   const [attendanceData, setAttendanceData] = useState([]);

@@ -139,7 +139,7 @@
 
 import React, { useState, useEffect } from 'react';
 import * as XLSX from 'xlsx';
-import axios from 'axios';
+import axiosInstance from '../../../Utils/AxiosInstance';
 
 const StudentDataEntry = () => {
     const [branch, setBranch] = useState('');
@@ -153,7 +153,7 @@ const StudentDataEntry = () => {
     useEffect(() => {
         const fetchCriteriaData = async () => {
             try {
-                const response = await axios.get('http://localhost:4545/admin/getBranchDivisionSemesterData');
+                const response = await axiosInstance.get('/admin/getBranchDivisionSemesterData');
                 const criteriaData = response.data;
                 
                 // Create an object to store divisions by branch
@@ -228,7 +228,7 @@ const StudentDataEntry = () => {
         };
     
         try {
-            const response = await axios.post('http://localhost:4545/admin/addStudents', data);
+            const response = await axiosInstance.post('/admin/addStudents', data);
             console.log(response.data);
             alert("Students Data added successfully.")
 

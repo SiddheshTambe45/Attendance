@@ -1106,14 +1106,16 @@
 
 
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import './AttendanceUpdate.css'; // Import the CSS file
 import { formatISO, parseISO, format } from 'date-fns';
-import axiosInstance from '../../../Utils/AxiosInstance'
+import axiosInstance from '../../../Utils/AxiosInstance';
+import { useSelector } from 'react-redux';
 
 
 const AttendanceUpdate = () => {
-  const faculty_id = "F030"; // Replace with actual faculty ID
+  // const faculty_id = "F030"; // Replace with actual faculty ID
+  const { faculty_id } = useSelector((state) => state.auth);
+
 
   // States for criteria options
   const [semesterOptions, setSemesterOptions] = useState([]);

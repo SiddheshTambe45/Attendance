@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import HeaderCriteria from './HeaderCriteria';
 import ShowReport from './ShowReport';
 // import Students from '../../JSON/Students.json'; // Assuming you have imported the JSON data
-import axios from 'axios';
 import axiosInstance from '../../../Utils/AxiosInstance';
 
 export default function PrincipalReport() {

@@ -128,7 +128,6 @@
 
 // src/Pages/Authentication/Login/Login.js
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import './styles/Login.css';
 import { useNavigate } from 'react-router-dom';

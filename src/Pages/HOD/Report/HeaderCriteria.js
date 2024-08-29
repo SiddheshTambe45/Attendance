@@ -2,7 +2,6 @@
 
 
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import axiosInstance from '../../../Utils/AxiosInstance';
 // import apiClient from '../../../Utils/ApiClient'; // Import the configured apiClient
 

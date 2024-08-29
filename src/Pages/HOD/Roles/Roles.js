@@ -1936,12 +1936,11 @@ import React, { useState, useEffect } from 'react';
 import './styles/Roles.css';
 import { BsPlus, BsPencil, BsDash } from 'react-icons/bs';
 import { useSelector } from 'react-redux';
-import axios from 'axios';
 import axiosInstance from '../../../Utils/AxiosInstance';
 
 const Roles = () => {
   const { department } = useSelector((state) => state.auth); // This is your department
-  const hodDepartment = 'IOT';
+  const hodDepartment = department;
 
   const [roles, setRoles] = useState([]);
   const [teachers, setTeachers] = useState([]);

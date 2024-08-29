@@ -3,16 +3,15 @@
 import React, { useState } from 'react';
 import HeaderCriteria from './HeaderCriteria';
 import ShowReport from './ShowReport';
-import axios from 'axios';
 import { useSelector } from 'react-redux';
 import axiosInstance from '../../../Utils/AxiosInstance';
 
 export default function HodReport() {
 
   // Access department and role from Redux store
-  // const { department, role } = useSelector((state) => state.auth);
+  const { department, role } = useSelector((state) => state.auth);
 
-  const department = 'FIRST_YEAR'
+  // const department = 'FIRST_YEAR'
 
   const [attendance, setAttendance] = useState([]);
   const [loading, setLoading] = useState(false);

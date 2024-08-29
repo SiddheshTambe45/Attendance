@@ -427,7 +427,6 @@
 
 
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import './Styles/Allocation.css';
 import { BsPlus, BsPencil, BsDash } from 'react-icons/bs';
 import { useSelector } from 'react-redux';
@@ -435,8 +434,8 @@ import axiosInstance from '../../../Utils/AxiosInstance';
 
 const Allocation = () => {
   const { department } = useSelector((state) => state.auth); // This is your department
-  // const hodDepartment = department;
-  const hodDepartment = 'FIRST_YEAR';
+  const hodDepartment = department;
+  // const hodDepartment = 'FIRST_YEAR';
 
   const [selectedBranch, setSelectedBranch] = useState('');
   const [currentSemester, setCurrentSemester] = useState('');

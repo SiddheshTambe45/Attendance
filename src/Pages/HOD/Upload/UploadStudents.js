@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'; // Import axios for API calls
 import { FaFileCsv, FaFileExcel, FaPencilAlt } from 'react-icons/fa'; // Import CSV, Excel and Pencil icons
 import './Styles/UploadCriteria.css'; // Import the CSS file
 import * as XLSX from 'xlsx';
@@ -10,9 +9,9 @@ import axiosInstance from '../../../Utils/AxiosInstance';
 const UploadStudents = () => {
 
   const { department } = useSelector((state)=> state.auth);
-  // const hodDepartment = department;
+  const hodDepartment = department;
 
-  const hodDepartment= "FIRST_YEAR";
+  // const hodDepartment= "FIRST_YEAR";
 
   const [selectedSemester, setSelectedSemester] = useState('');
   const [selectedDivision, setSelectedDivision] = useState('');
