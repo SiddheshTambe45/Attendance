@@ -1,169 +1,107 @@
 /* Ensure the table has horizontal overflow */
 .table-responsive {
-    overflow-x: auto;
-    width: 100% !important;
-    max-height: auto;
-    height: auto;
-    /* Adjust the height as needed */
-    overflow-y: auto;
+  overflow-x: auto;
+  width: 100% !important;
+  max-height: auto;
+  height: auto;
+  /* Adjust the height as needed */
+  overflow-y: auto;
+}
+
+/* Make the PRN and Name columns sticky */
+.sticky-column {
+  position: -webkit-sticky; /* For Safari */
+  position: sticky;
+  left: 0;
+  background-color: #f8f9fa; /* Background color to match the table header */
+  z-index: 2; /* Ensure the sticky columns are above other table cells */
+  box-shadow: 0 0 0 6px #dee2e6; /* Creates a 1px border */
+  outline: 3px solid #dee2e6; /* Add an outline for better visibility */
+}
+
+.prn-col {
+  min-width: 150px; /* Adjust according to your column width */
+  padding: 8px; /* Add padding to maintain space */
+}
+
+.name-col {
+  min-width: 200px; /* Adjust according to your column width */
+  padding: 8px; /* Add padding to maintain space */
+  left: 150px; /* Adjust according to your column width */
+}
+
+/* Ensure the table header cells are also sticky */
+thead .sticky-column {
+  top: 0;
+  z-index: 3; /* Ensure header is above body cells */
+}
+
+/* Ensure borders remain visible in both thead and tbody */
+thead th,
+tbody td {
+  border: 1px solid #dee2e6;
+}
+
+/* Style the search input and filters */
+.input-group.mb-3 {
+  width: 100%; /* Adjust the width to your liking */
+  margin: 20px auto; /* Add some margin for better placement */
+  box-shadow: 0 0 10px rgb(247, 244, 244); /* Add a subtle shadow */
+}
+
+.input-group-text {
+  padding: 10px; /* Add some padding for better spacing */
+  font-size: 16px; /* Adjust the font size to your liking */
+  color: #495057; /* Adjust the color to your liking */
+}
+
+.input-group-text i {
+  font-size: 18px; /* Adjust the font size to your liking */
+}
+
+/* Style for absence cells */
+.absent {
+  background-color: #f8d7da !important; /* Red background color */
+}
+
+/* Styles for print */
+@media print {
+  .table-responsive {
+    overflow: visible !important;
   }
-  
-  /* Make the PRN and Name columns sticky */
-  .sticky-column {
-    position: -webkit-sticky; /* For Safari */
-    position: sticky;
-    left: 0;
-    background-color: #f8f9fa; /* Background color to match the table header */
-    z-index: 2; /* Ensure the sticky columns are above other table cells */
-    box-shadow: 0 0 0 6px #dee2e6; /* Creates a 1px border */
-    outline: 3px solid #dee2e6; /* Add an outline for better visibility */
-  }
-  
-  .prn-col {
-    min-width: 150px; /* Adjust according to your column width */
-    padding: 8px; /* Add padding to maintain space */
-  }
-  
-  .name-col {
-    min-width: 200px; /* Adjust according to your column width */
-    padding: 8px; /* Add padding to maintain space */
-    left: 150px; /* Adjust according to your column width */
-  }
-  
-  /* Ensure the table header cells are also sticky */
-  thead .sticky-column {
-    top: 0;
-    z-index: 3; /* Ensure header is above body cells */
-  }
-  
-  /* Ensure borders remain visible in both thead and tbody */
-  thead th,
-  tbody td {
-    border: 1px solid #dee2e6;
-  }
-  
-  .input-group.mb-3 {
-    width: 100%; /* adjust the width to your liking */
-    margin: 20px auto; /* add some margin for better placement */
-    box-shadow: 0 0 10px rgb(247, 244, 244); /* add a subtle shadow */
-  }
-  
-  .input-group-append {
-    background-color: #f8f9fa; /* match the background color of the table */
-    border: 1px solid #dee2e6; /* match the border color of the table */
-    border-left: none; /* remove the left border to create a seamless look */
-  }
-  
-  .input-group-text {
-    padding: 10px; /* add some padding for better spacing */
-    font-size: 16px; /* adjust the font size to your liking */
-    color: #495057; /* adjust the color to your liking */
-  }
-  
-  .input-group-text i {
-    font-size: 18px; /* adjust the font size to your liking */
-  }
-  
-  .absent-repeated {
-    background-color: red; /* Example color for repeated absences */
-  }
-  
-  .filter-section .form-select, .filter-section .form-control, .filter-section .btn {
+
+  table {
     width: 100%;
-    margin-top: 10px;
-    box-shadow: 0 0 10px rgb(247, 244, 244); /* add a subtle shadow */
+    border-collapse: collapse;
+    page-break-inside: auto;
   }
-  
-  .filter-section .form-select,
-  .filter-section .form-control {
-    height: calc(2.25rem + 2px);
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
   }
-  
-  .filter-section .btn-primary {
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
-    display: inline-block;
-    font-weight: 400;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    user-select: none;
-    border: 1px solid transparent;
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    border-radius: 0.25rem;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  th, td {
+    border: 1px solid #000;
+    padding: 5px;
+    text-align: left;
+    page-break-inside: avoid;
   }
-  
-  .filter-section .btn-primary:hover {
-    color: #fff;
-    background-color: #0056b3;
-    border-color: #004085;
+
+  .sticky-column {
+    background-color: #fff !important;
+    -webkit-print-color-adjust: exact;
   }
-  
-  .filter-section .btn-primary:focus,
-  .filter-section .btn-primary.focus {
-    color: #fff;
-    background-color: #0056b3;
-    border-color: #004085;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+
+  thead {
+    display: table-header-group;
   }
-  
-  @media print {
-    .table-responsive {
-      overflow: visible !important;
-    }
-  
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      page-break-inside: auto;
-    }
-  
-    tr {
-      page-break-inside: avoid;
-      page-break-after: auto;
-    }
-  
-    th, td {
-      border: 1px solid #000;
-      padding: 5px;
-      text-align: left;
-      page-break-inside: avoid;
-    }
-  
-    .sticky-column {
-      background-color: #fff !important;
-      -webkit-print-color-adjust: exact;
-    }
-  
-    thead {
-      display: table-header-group;
-    }
-  
-    tbody {
-      display: table-row-group;
-    }
-  
-    tfoot {
-      display: table-footer-group;
-    }
-  
-    /* Optional: Style the table to look better on print */
-    th, td {
-      page-break-inside: avoid !important;
-      page-break-after: auto !important;
-    }
+
+  tbody {
+    display: table-row-group;
   }
-  
+
+  tfoot {
+    display: table-footer-group;
+  }
+}

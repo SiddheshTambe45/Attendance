@@ -1,0 +1,177 @@
+/* Container Styles */
+.container {
+  max-width: 1000px;
+  margin: auto;
+  background: #ffffff; /* Lighter background for better contrast */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Header Styles */
+h1 {
+  color: #333;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 600;
+  text-align: center; /* Center align for a balanced look */
+  margin-bottom: 20px; /* Space below the header */
+}
+
+/* Table Container Styles */
+.table-responsive {
+  margin-top: 20px;
+  border-radius: 5px;
+  overflow-x: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Table Styles */
+.table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse; /* Ensure the table cells share borders */
+}
+
+.table th, .table td {
+  vertical-align: middle;
+  padding: 12px 15px; /* Add padding for better spacing */
+  border-bottom: 1px solid #ddd; /* Bottom border for separation */
+}
+
+.table th {
+  background-color: #f4f4f4; /* Light background for table header */
+  font-weight: 600;
+}
+
+/* Button Styles */
+.btn {
+  margin-top: 10px;
+  background-color: #007bff; /* Primary button color */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for hover */
+}
+
+.btn:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Select Styles */
+.form-select {
+  width: 100%;
+  max-width: 200px;
+  padding: 8px 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd; /* Border for better visibility */
+  transition: border-color 0.3s ease; /* Smooth transition for focus */
+}
+
+.form-select:focus {
+  border-color: #007bff; /* Change border color on focus */
+}
+
+/* Actions Section Styles */
+.actions {
+  margin-bottom: 20px; /* Space below the action buttons */
+}
+
+/* Align button group to the right */
+.btn-group {
+  display: flex;
+  justify-content: flex-end; /* Align buttons to the right */
+  gap: 10px; /* Space between buttons */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+      padding: 15px;
+  }
+
+  .table {
+      min-width: 100%; /* Adjust table for smaller screens */
+  }
+
+  .form-select {
+      max-width: 100%; /* Ensure select dropdown is responsive */
+  }
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}

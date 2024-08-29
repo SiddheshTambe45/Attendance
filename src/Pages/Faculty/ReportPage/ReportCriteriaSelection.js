@@ -1,6 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import axiosInstance from '../../../Utils/AxiosInstance'
+
 
 const ReportCriteriaSelection = ({ setAttendanceData, setCriteria, criteria }) => {
   const [semester, setSemester] = useState('');
@@ -16,9 +18,12 @@ const ReportCriteriaSelection = ({ setAttendanceData, setCriteria, criteria }) =
     const fetchCriteria = async () => {
       try {
         const faculty_id = "F030";
-        const response = await axios.get(`http://localhost:4545/faculty/getFacultyTeachingData?faculty_id=${faculty_id}`,{
-          withCredentials:true
-        });
+        // const response = await axios.get(`http://localhost:4545/faculty/getFacultyTeachingData?faculty_id=${faculty_id}`,{
+        //   withCredentials:true
+        // });
+
+        const response = await axiosInstance.get(`/faculty/getFacultyTeachingData?faculty_id=${faculty_id}`);
+
         const data = response.data;
         setCriteria({
           semesters: data.semesters || [],
@@ -83,8 +88,10 @@ const ReportCriteriaSelection = ({ setAttendanceData, setCriteria, criteria }) =
         batch: batch || undefined
       };
   
-      const response = await axios.get('http://localhost:4545/faculty/getParticularData', { params,
-        withCredentials:true });
+      // const response = await axios.get('http://localhost:4545/faculty/getParticularData', { params,
+      //   withCredentials:true });
+
+      const response = await axiosInstance.get('/faculty/getParticularData', { params });
   
       const studentsData = response.data.attendanceData || [];
       console.log(studentsData);

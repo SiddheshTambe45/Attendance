@@ -4,6 +4,7 @@ import HeaderCriteria from './HeaderCriteria';
 import ShowReport from './ShowReport';
 // import Students from '../../JSON/Students.json'; // Assuming you have imported the JSON data
 import axios from 'axios';
+import axiosInstance from '../../../Utils/AxiosInstance';
 
 export default function PrincipalReport() {
   const [attendance, setAttendance] = useState([]);
@@ -27,16 +28,24 @@ export default function PrincipalReport() {
         selectedBatch,
       };
       
-      const response = await axios.get('http://localhost:4545/principal/fetchAttendanceData',{
+      // const response = await axios.get('http://localhost:4545/principal/fetchAttendanceData',{
+      //   params:{
+      //     semester:selectedSemester,
+      //     branch:selectedBranch,
+      //     division:selectedDivision,
+      //     batch:selectedBatch
+      //   },
+      //   withCredentials:true
+      // });
+
+      const response = await axiosInstance.get('/principal/fetchAttendanceData',{
         params:{
           semester:selectedSemester,
           branch:selectedBranch,
           division:selectedDivision,
           batch:selectedBatch
-        },
-        withCredentials:true
+        }
       });
-      console.log(response.data[0].subjects)
       setAttendance(response.data)
       setError('');
     } catch (err) {

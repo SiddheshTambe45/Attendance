@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// import axiosInstance from '../../../Utils/AxiosInstance';
+import axiosInstance from '../../../Utils/AxiosInstance';
 // import apiClient from '../../../Utils/ApiClient'; // Import the configured apiClient
 
 const HeaderCriteria = ({
@@ -27,16 +27,16 @@ const HeaderCriteria = ({
   useEffect(() => {
     const fetchCriteria = async () => {
       try {
-        const response = await axios.get('http://localhost:4545/hod/getCriteria', {
-          params: {
-            branch: branches
-          },
-          withCredentials: true 
-        });
-
-        // const response = await axiosInstance.get('http://localhost:4545/hod/getCriteria', {
-        //   params: { branch: branches },
+        // const response = await axios.get('http://localhost:4545/hod/getCriteria', {
+        //   params: {
+        //     branch: branches
+        //   },
+        //   withCredentials: true 
         // });
+
+        const response = await axiosInstance.get('/hod/getCriteria', {
+          params: { branch: branches },
+        });
 
         // const response = await apiClient.get('http://localhost:4545/hod/getCriteria', {
         //   params:{

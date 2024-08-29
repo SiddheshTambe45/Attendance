@@ -43,8 +43,24 @@ const ShowReport = ({ attendance, loading, error }) => {
     link.click();
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error fetching attendance data: {error}</p>;
+  if (loading){
+    return (
+      <div className='container mt-2' style={{minHeight:'70vh'}}>
+        <div className='row'>
+        <p className='text-center'>Loading...</p>;
+        </div>
+      </div>
+    )
+  }
+  if (error){
+      return (
+        <div className='container mt-2' style={{minHeight:'70vh'}}>
+          <div className='row'>
+            <p className='text-center text-danger display-6'>Error fetching attendance data: {error}</p>
+          </div>
+        </div>
+      )
+  }
 
   const combinedAttendance = attendance.map((student) => {
     const subjectsAttendance = {};

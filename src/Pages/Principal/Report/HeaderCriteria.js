@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import axiosInstance from '../../../Utils/AxiosInstance'
 
 const HeaderCriteria = ({
   selectedSemester,
@@ -24,9 +25,11 @@ const HeaderCriteria = ({
   useEffect(() => {
     const fetchCriteria = async () => {
       try {
-        const response = await axios.get('http://localhost:4545/principal/getCriteria',{
-          withCredentials:true
-        });
+        // const response = await axios.get('http://localhost:4545/principal/getCriteria',{
+        //   withCredentials:true
+        // });
+
+        const response = await axiosInstance.get('/principal/getCriteria');
         const data = response.data;
 
         // Extract unique semesters

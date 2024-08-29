@@ -1,27 +1,38 @@
 
+
+
+
+// /// src/Pages/Authentication/Login/Login.js
 // import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
-// import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Import eye icons
+// import { FaEye, FaEyeSlash } from 'react-icons/fa';
 // import './styles/Login.css';
 // import { useNavigate } from 'react-router-dom';
-// import { useDispatch } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 // import { setUser } from '../../../Store/Slices/AuthSlice';
+
 
 // const Login = () => {
 //   const navigate = useNavigate();
 //   const dispatch = useDispatch();
+//   const { facultyId, department, role } = useSelector(state => state.auth);
 
 //   const [email, setEmail] = useState('');
 //   const [password, setPassword] = useState('');
-//   const [showPassword, setShowPassword] = useState(false); // State for password visibility
-//   const [formErrors, setFormErrors] = useState({}); // State for form errors
-//   const [role, setRole] = useState(''); // State for user role
+//   const [showPassword, setShowPassword] = useState(false);
+//   const [formErrors, setFormErrors] = useState({});
 
 //   useEffect(() => {
-//     // Determine role based on email
-//     const determinedRole = email.startsWith('hod') ? 'HOD' : 'Faculty';
-//     setRole(determinedRole);
-//   }, [email]);
+//     // Check if user is already logged in based on Redux state
+//     if (facultyId && department && role) {
+//       const homePath = {
+//         HOD: '/hod',
+//         Faculty: '/faculty',
+//         Principal: '/principal'
+//       }[role];
+//       navigate(homePath);
+//     }
+//   }, [facultyId, department, role, navigate]);
 
 //   const validateForm = () => {
 //     const errors = {};
@@ -40,28 +51,22 @@
 //     }
 
 //     try {
-//       // Send login request
-//       const response = await axios.post('http://localhost:4545/authenticate/login', { email, password, role },{withCredentials:true});
-//       const responseData = response.data; // Access the data property
-      
-//       // console.log(responseData.accessToken)
-//     // // Store the access token in localStorage
-//     // localStorage.setItem('accessToken', responseData.accessToken);
+//       const response = await axios.post('http://localhost:4545/authenticate/login', { email, password }, { withCredentials: true });
+//       const responseData = response.data;
 
+//       dispatch(setUser({
+//         facultyId: responseData.facultyId,
+//         department: responseData.department,
+//         role: responseData.role,
+//       }));
 
-//     // Update Redux store
-//     dispatch(setUser({
-//       facultyId: responseData.facultyId,
-//       department: responseData.department,
-//       role: responseData.role,
-//     }));
-    
-//       // Navigate based on role
-//       if (responseData.role === 'HOD' && role === 'HOD') {
-//         navigate('/hod');
-//       } else {
-//         navigate('/faculty');
-//       }
+//       const homePath = {
+//         HOD: '/hod',
+//         Faculty: '/faculty',
+//         Principal: '/principal'
+//       }[responseData.role];
+
+//       navigate(homePath);
 
 //     } catch (error) {
 //       console.error('There was an error during login!', error);
@@ -70,8 +75,8 @@
 //   };
 
 //   return (
-//     <div id='login' className='login'>
-//       <div className="container p-5 rounded my-0 my-sm-3 mx-0 mx-sm-auto" style={{ maxWidth: '700px', boxShadow:'0 0 3px grey'}}>
+//     <div id="login" className="login">
+//       <div className="container p-5 rounded my-0 my-sm-3 mx-0 mx-sm-auto" style={{ maxWidth: '700px', boxShadow: '0 0 3px grey' }}>
 //         <h2 className="my-4">Login</h2>
 //         <form onSubmit={handleSubmit}>
 //           <div className="mb-3">
@@ -93,7 +98,7 @@
 //               id="password"
 //               value={password}
 //               onChange={(e) => setPassword(e.target.value)}
-//               minLength={6} // Ensure password has a minimum length of 6
+//               minLength={6}
 //               required
 //             />
 //             <button
@@ -121,24 +126,40 @@
 // export default Login;
 
 
-
-/// src/Pages/Authentication/Login/Login.js
-import React, { useState } from 'react';
+// src/Pages/Authentication/Login/Login.js
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import './styles/Login.css';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { setUser } from '../../../Store/Slices/AuthSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import Cookies from 'js-cookie';
+import axiosInstance from '../../../Utils/AxiosInstance';
+import { setUser } from '../../../Store/Slices/AuthSlice'
+import { Link } from 'react-router-dom';
+import logo from '../../../Assests/Images/gstlogo.png'
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { facultyId, department, role } = useSelector(state => state.auth);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [formErrors, setFormErrors] = useState({});
+
+  useEffect(() => {
+    // Check if user is already logged in based on Redux state
+    if (facultyId && department && role) {
+      const homePath = {
+        HOD: '/hod',
+        Faculty: '/faculty',
+        Principal: '/principal'
+      }[role];
+      navigate(homePath);
+    }
+  }, [facultyId, department, role, navigate]);
 
   const validateForm = () => {
     const errors = {};
@@ -157,20 +178,26 @@ const Login = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:4545/authenticate/login', { email, password }, { withCredentials: true });
-      const responseData = response.data;
+      // await axios.post('http://localhost:4545/authenticate/login', { email, password }, { withCredentials: true });
+      
+      await axiosInstance.post('/authenticate/login', { email, password });
+      
+      const cookieUserData = Cookies.get('userData') ? JSON.parse(Cookies.get('userData')) : {};
 
-      dispatch(setUser({
-        facultyId: responseData.facultyId,
-        department: responseData.department,
-        role: responseData.role,
-      }));
-
+      // Dispatch the setUser action
+      if (cookieUserData) {
+        dispatch(setUser({
+          facultyId: cookieUserData.facultyId,
+          department: cookieUserData.department,
+          role: cookieUserData.role
+        }));
+      }
+      
       const homePath = {
         HOD: '/hod',
         Faculty: '/faculty',
         Principal: '/principal'
-      }[responseData.role];
+      }[cookieUserData.role.toLowerCase()];
 
       navigate(homePath);
 
@@ -182,6 +209,17 @@ const Login = () => {
 
   return (
     <div id="login" className="login">
+      <div className='container shadow-none'>
+        <nav classname='navbar bg-body-tertiary '>
+                <div className='row'>
+                    <div className='col-6 d-flex justify-content-center'>
+                        <Link className="navbar-brand" to='/'>
+                            <img src={logo} className='img-fluid img-logo' alt=''/>
+                        </Link>
+                    </div>
+                </div>
+            </nav>
+      </div>
       <div className="container p-5 rounded my-0 my-sm-3 mx-0 mx-sm-auto" style={{ maxWidth: '700px', boxShadow: '0 0 3px grey' }}>
         <h2 className="my-4">Login</h2>
         <form onSubmit={handleSubmit}>

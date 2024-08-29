@@ -5,11 +5,14 @@ import HeaderCriteria from './HeaderCriteria';
 import ShowReport from './ShowReport';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
+import axiosInstance from '../../../Utils/AxiosInstance';
 
 export default function HodReport() {
 
   // Access department and role from Redux store
-  const { department, role } = useSelector((state) => state.auth);
+  // const { department, role } = useSelector((state) => state.auth);
+
+  const department = 'FIRST_YEAR'
 
   const [attendance, setAttendance] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -24,14 +27,23 @@ export default function HodReport() {
   const handleFetchAttendance = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:4545/hod/fetchAttendanceData', {
+      // const response = await axios.get('http://localhost:4545/hod/fetchAttendanceData', {
+      //   params: {
+      //     semester: selectedSemester,
+      //     branch: selectedBranch,
+      //     division: selectedDivision,
+      //     batch: selectedBatch
+      //   },
+      //   withCredentials: true 
+      // });
+
+      const response = await axiosInstance.get('/hod/fetchAttendanceData', {
         params: {
           semester: selectedSemester,
           branch: selectedBranch,
           division: selectedDivision,
           batch: selectedBatch
-        },
-        withCredentials: true 
+        }
       });
       setAttendance(response.data);
       setError('');

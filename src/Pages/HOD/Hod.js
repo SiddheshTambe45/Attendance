@@ -4,6 +4,8 @@ import Allocation from './Allocation/Allocation';
 import HodReport from './Report/HodReport';
 import UploadStudents from './Upload/UploadStudents';
 import HomePage from './HomePage/HomePage';
+import Roles from './Roles/Roles';
+
 
 export default function Hod() {
   return (
@@ -13,6 +15,7 @@ export default function Hod() {
         <Route path='/report' element={<HodReport />} />
         <Route path='/allocation' element={<Allocation />} />
         <Route path='/upload'element={<UploadStudents />} />
+        <Route path='/roles' element={<Roles />} />
       </Routes>
   
   )

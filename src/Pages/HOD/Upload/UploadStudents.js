@@ -5,11 +5,14 @@ import './Styles/UploadCriteria.css'; // Import the CSS file
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
 import { useSelector } from 'react-redux';
+import axiosInstance from '../../../Utils/AxiosInstance';
 
 const UploadStudents = () => {
 
   const { department } = useSelector((state)=> state.auth);
-  const hodDepartment = department;
+  // const hodDepartment = department;
+
+  const hodDepartment= "FIRST_YEAR";
 
   const [selectedSemester, setSelectedSemester] = useState('');
   const [selectedDivision, setSelectedDivision] = useState('');
@@ -25,7 +28,9 @@ const UploadStudents = () => {
 
   const fetchSemestersAndDivisions = async () => {
     try {
-      const response = await axios.get('http://localhost:4545/hod/getSemestersAndDivisions', { params: { department: hodDepartment },withCredentials: true });
+      // const response = await axios.get('http://localhost:4545/hod/getSemestersAndDivisions', { params: { department: hodDepartment },withCredentials: true });
+
+      const response = await axiosInstance.get('/hod/getSemestersAndDivisions', { params: { department: hodDepartment }});
       setSemesterOptions(response.data.semesters);
       setDivisionOptions(response.data.divisions[response.data.semesters[0]]); // Assuming the first semester for initial load
     } catch (error) {
@@ -140,8 +145,10 @@ const UploadStudents = () => {
         students,
       };
 
-      console.log(payload)
-      const response = await axios.post('http://localhost:4545/hod/addStudents', payload, { withCredentials: true });
+      // console.log(payload)
+      // const response = await axios.post('http://localhost:4545/hod/addStudents', payload, { withCredentials: true });
+
+      const response = await axiosInstance.post('/hod/addStudents', payload);
       alert(response.data.message);
     } catch (error) {
       setErrorMsg('Error saving data to the backend');
