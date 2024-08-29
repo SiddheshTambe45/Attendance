@@ -208,18 +208,16 @@ const Login = () => {
 
   return (
     <div id="login" className="login">
-      <div className='container shadow-none'>
-        <nav classname='navbar bg-body-tertiary '>
+      <div className="container p-5 rounded my-0 my-sm-3 mx-0 mx-sm-auto" style={{ maxWidth: '700px', boxShadow: '0 0 3px grey' }}>
+      <nav classname='navbar bg-body-tertiary '>
                 <div className='row'>
-                    <div className='col-6 d-flex justify-content-center'>
+                    <div className='col d-flex justify-content-center'>
                         <Link className="navbar-brand" to='/'>
                             <img src={logo} className='img-fluid img-logo' alt=''/>
                         </Link>
                     </div>
                 </div>
             </nav>
-      </div>
-      <div className="container p-5 rounded my-0 my-sm-3 mx-0 mx-sm-auto" style={{ maxWidth: '700px', boxShadow: '0 0 3px grey' }}>
         <h2 className="my-4">Login</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
