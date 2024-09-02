@@ -3,3 +3,7 @@
     height: 80px !important;
     width: 200px !important;
 }
+
+.offset-top{
+    padding-top: 130px !important; /* Adjust this value based on your navbar height */
+}

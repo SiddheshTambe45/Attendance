@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 // Create an Axios instance
 const axiosInstance = axios.create({
-  baseURL: 'https://devices-biggest-drops-expression.trycloudflare.com',
+  baseURL: /*'http://localhost:4545',*/ 'https://devices-biggest-drops-expression.trycloudflare.com',
   withCredentials: true, // Ensure cookies are sent with requests
 });
 
