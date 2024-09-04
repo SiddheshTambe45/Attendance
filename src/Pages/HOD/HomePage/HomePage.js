@@ -2,8 +2,13 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import Logout from '../../Authentication/Logout/Logout'
 import logo from '../../../Assests/Images/gstlogo.png'
+import { useSelector } from 'react-redux';
+
 
 export default function HomePage() {
+
+    const { department } = useSelector((state)=> state.auth);
+
 
   return (
     <div>
@@ -39,11 +44,15 @@ export default function HomePage() {
                         </button>
                     </Link>
 
-                    <Link to='/hod/upload' >
-                        <button className='btn bg-transparent text-dark' style={{fontSize:'3rem'}}>
-                            Upload Students
-                        </button>
-                    </Link>
+                    {
+                        department !== 'FIRST_YEAR' ? (
+                            <Link to='/hod/upload' >
+                                <button className='btn bg-transparent text-dark' style={{fontSize:'3rem'}}>
+                                    Upload Students
+                                </button>
+                            </Link>
+                        ) : ''
+                    }
 
                     <Link to='/hod/roles' >
                         <button className='btn bg-transparent text-dark' style={{fontSize:'3rem'}}>

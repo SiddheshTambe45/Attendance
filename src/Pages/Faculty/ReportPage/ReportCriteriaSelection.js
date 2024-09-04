@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 
 const ReportCriteriaSelection = ({ setAttendanceData, setCriteria, criteria }) => {
 
-  const { faculty_id } = useSelector((state) => state.auth);
+  const { facultyId } = useSelector((state) => state.auth);
 
   const [semester, setSemester] = useState('');
   const [branch, setBranch] = useState('');
@@ -25,7 +25,7 @@ const ReportCriteriaSelection = ({ setAttendanceData, setCriteria, criteria }) =
         //   withCredentials:true
         // });
 
-        const response = await axiosInstance.get(`/faculty/getFacultyTeachingData?faculty_id=${faculty_id}`);
+        const response = await axiosInstance.get(`/faculty/getFacultyTeachingData?faculty_id=${facultyId}`);
 
         const data = response.data;
         setCriteria({
@@ -105,11 +105,18 @@ const ReportCriteriaSelection = ({ setAttendanceData, setCriteria, criteria }) =
         return;
       }
   
+      // const transformedData = studentsData.map(student => ({
+      //   prn: student.prn,
+      //   name: student.name,
+      //   lectures: student.lectures.map(lecture => lecture),
+      //   dates: student.dates
+      // }));
+
       const transformedData = studentsData.map(student => ({
         prn: student.prn,
         name: student.name,
-        lectures: student.lectures.map(lecture => lecture),
-        dates: student.dates
+        lectures: student.lectures ? student.lectures.map(lecture => lecture) : [],
+        dates: student.dates || []
       }));
   
       console.log(transformedData);
