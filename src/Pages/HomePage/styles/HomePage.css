@@ -1,9 +1,74 @@
-
+/*
 .img-logo{
     height: 80px !important;
     width: 200px !important;
 }
 
 .offset-top{
-    padding-top: 130px !important; /* Adjust this value based on your navbar height */
+    padding-top: 130px !important; /* Adjust this value based on your navbar height */ /*
+}
+
+*/
+
+
+ /* .hidden {
+     height: 0;
+     overflow: hidden;
+     opacity: 0;
+     transition: height 0.5s ease, opacity 0.5s ease;
+ }
+
+ .visible {
+     height: 800px;
+     opacity: 1;
+     transition: height 0.5s ease, opacity 0.5s ease;
+ }
+
+ @media screen and (max-width: 576px) {
+    .nav-1, .nav-3 {
+        order: 1 !important;
+        flex-basis: 50%;
+        max-width: 50%;
+    }
+    .nav-2 {
+        order: 2 !important;
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+}
+
+.nav-1, .nav-2, .nav-3 {
+    order: 1; 
+} */
+
+
+.homePageNav .hidden {
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: height 0.5s ease, opacity 0.5s ease;
+}
+
+.homePageNav .visible {
+    height: 600px;
+    /* Set this to the height of your content */
+    opacity: 1;
+    transition: height 0.5s ease, opacity 0.5s ease;
+}
+
+@media screen and (max-width: 576px) {
+    .homePageNav .nav-1, .homePageNav .nav-3 {
+        order: 1 !important;
+        flex-basis: 50%;
+        max-width: 50%;
+    }
+    .homePageNav .nav-2 {
+        order: 2 !important;
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+}
+
+.homePageNav .nav-1, .homePageNav .nav-2, .homePageNav .nav-3 {
+    order: 1; /* Default order for larger screens */
 }

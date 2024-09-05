@@ -1,0 +1,31 @@
+
+.mainNavbar .hidden {
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: height 0.5s ease, opacity 0.5s ease;
+}
+
+.mainNavbar .visible {
+    height: 600px;
+    /* Set this to the height of your content */
+    opacity: 1;
+    transition: height 0.5s ease, opacity 0.5s ease;
+}
+
+@media screen and (max-width: 576px) {
+    .mainNavbar .nav-1, .mainNavbar .nav-3 {
+        order: 1 !important;
+        flex-basis: 50%;
+        max-width: 50%;
+    }
+    .mainNavbar .nav-2 {
+        order: 2 !important;
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+}
+
+.mainNavbar .nav-1, .mainNavbar .nav-2, .mainNavbar .nav-3 {
+    order: 1; /* Default order for larger screens */
+}
