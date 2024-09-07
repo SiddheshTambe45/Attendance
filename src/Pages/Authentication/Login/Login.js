@@ -296,7 +296,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Cookies from 'js-cookie';
 import axiosInstance from '../../../Utils/AxiosInstance';
-import { setUser } from '../../../Store/Slices/AuthSlice';
+import { setUser, clearUser } from '../../../Store/Slices/AuthSlice';
 import AuthenticateNavbar from '../../../Components/AuthenticateNavbar';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
@@ -361,8 +361,15 @@ const Login = () => {
       navigate(homePath);
 
     } catch (error) {
-      console.error('There was an error during login!', error);
-      setFormErrors({ general: 'Login failed. Please check your credentials.' });
+
+      if (error.response && error.response.status === 401) {
+        // Unauthorized access
+        dispatch(clearUser()); // Clear user data from Redux store
+        navigate('/login'); // Redirect to login page
+      } else {
+        console.error('There was an error during login!', error);
+        setFormErrors({ general: 'Login failed. Please check your credentials.' });
+      }
     }
   };
 
