@@ -361,7 +361,7 @@ const Login = () => {
       navigate(homePath);
 
     } catch (error) {
-
+      console.log("HI")
       if (error.response && error.response.status === 401) {
         // Unauthorized access
         dispatch(clearUser()); // Clear user data from Redux store

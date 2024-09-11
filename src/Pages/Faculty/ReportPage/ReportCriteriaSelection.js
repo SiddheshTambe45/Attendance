@@ -129,7 +129,7 @@ const ReportCriteriaSelection = ({ setAttendanceData, setCriteria, criteria }) =
   };
 
   return (
-    <div className="container mt-4">
+    <div className="container shadow-none mt-4">
       <div className='row'>
         <div className="col">
           <label htmlFor="semester" className="form-label">Semester:</label>

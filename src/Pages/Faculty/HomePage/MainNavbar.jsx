@@ -64,7 +64,7 @@ export default function MainNavbar() {
                 <div className={`row homePageHiddenNav ${menuOption ? 'hidden' : 'visible'}`}>
                     <div className='d-flex justify-content-end align-items-center'>
                         <div className='px-5'>
-                            <Link to='/' className='display-5 text-decoration-none text-dark'>
+                            <Link to='/faculty/' className='display-5 text-decoration-none text-dark'>
                                 Home
                             </Link>
                         </div>

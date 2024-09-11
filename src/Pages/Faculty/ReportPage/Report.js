@@ -147,7 +147,7 @@ const Report = ({ attendanceData }) => {
 
   if (!attendanceData || attendanceData.length === 0) {
     return (
-      <div className='container' style={{ minHeight: '100%' }}>
+      <div className='container shadow-none' style={{ minHeight: '100%' }}>
         <div className='row'>
           <h1 className='display-4 text-primary text-center py-md-5'>No Records to display.</h1>
         </div>
@@ -156,7 +156,7 @@ const Report = ({ attendanceData }) => {
   }
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 shadow-none">
       <div className="row justify-content-center">
         <div className="col-12">
           <div className="input-group mb-3">

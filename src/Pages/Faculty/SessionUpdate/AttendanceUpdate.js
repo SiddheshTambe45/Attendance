@@ -7,7 +7,7 @@ import './AttendanceUpdate.css'; // Import the CSS file
 import { formatISO, parseISO, format } from 'date-fns';
 import axiosInstance from '../../../Utils/AxiosInstance';
 import { useSelector } from 'react-redux';
-
+import MainNavbar from '../HomePage/MainNavbar'
 
 const AttendanceUpdate = () => {
   // const faculty_id = "F030"; // Replace with actual faculty ID
@@ -319,7 +319,9 @@ const AttendanceUpdate = () => {
   };
 
   return (
-    <div className="container" style={{ paddingTop: '20px' }}>
+    <>
+    <MainNavbar />
+    <div className="container shadow-none" style={{ paddingTop: '20px' }}>
       <div className="row">
         <div className="col-md-3">
           <select className="form-select mb-3" value={semester} onChange={handleSemesterChange}>
@@ -390,62 +392,63 @@ const AttendanceUpdate = () => {
         {error && <p className="text-danger">{error}</p>}
       </div>
 
-      {attendanceRecords.length ? (
-        <div>
-          {/* Display attendance data */}
-          <div className="table-responsive mt-3">
-            <table className="table attendance-table table-bordered mb-0 table-hover">
-              <thead>
-                <tr>
-                  <th className="sticky-col prn-col" scope="col">Student PRN</th>
-                  <th className="sticky-col name-col" scope="col">Name</th>
-                  {lectureDates.length ? lectureDates.map((date) => (
-                    <th key={date} scope="col">{formatDate(date)}</th>
-                  )) : <th scope="col">Attendance</th>}
-                </tr>
-              </thead>
-              <tbody>
-              {attendanceRecords.length > 0 ? 
-  attendanceRecords[0].students.map((student, studentIndex) => (
-    <tr key={student.prn}>
-      <td className="sticky-col prn-col">{student.prn}</td>
-      <td className="sticky-col name-col">{student.name}</td>
-      {lectureDates.map((date) => {
-        const record = attendanceRecords.find(record => record.date === date);
-        const isChecked = record ? record.students[studentIndex]?.attendance === 1 : true; // Default to true if record not found
-        return (
-          <td key={date}>
-            <input
-              type="checkbox"
-              checked={isChecked}
-              onChange={(e) =>
-                handleAttendanceChange(studentIndex, date, e.target.checked)
-              }
-            />
-          </td>
-        );
-      })}
-    </tr>
-  )) : 
-  <tr><td colSpan={lectureDates.length + 2}>No records available</td></tr>
-}
+        {attendanceRecords.length ? (
+          <div>
+            {/* Display attendance data */}
+            <div className="table-responsive mt-3">
+              <table className="table attendance-table table-bordered mb-0 table-hover">
+                <thead>
+                  <tr>
+                    <th className="sticky-col prn-col" scope="col">Student PRN</th>
+                    <th className="sticky-col name-col" scope="col">Name</th>
+                    {lectureDates.length ? lectureDates.map((date) => (
+                      <th key={date} scope="col">{formatDate(date)}</th>
+                    )) : <th scope="col">Attendance</th>}
+                  </tr>
+                </thead>
+                <tbody>
+                  {attendanceRecords.length > 0 ?
+                    attendanceRecords[0].students.map((student, studentIndex) => (
+                      <tr key={student.prn}>
+                        <td className="sticky-col prn-col">{student.prn}</td>
+                        <td className="sticky-col name-col">{student.name}</td>
+                        {lectureDates.map((date) => {
+                          const record = attendanceRecords.find(record => record.date === date);
+                          const isChecked = record ? record.students[studentIndex]?.attendance === 1 : true; // Default to true if record not found
+                          return (
+                            <td key={date}>
+                              <input
+                                type="checkbox"
+                                checked={isChecked}
+                                onChange={(e) =>
+                                  handleAttendanceChange(studentIndex, date, e.target.checked)
+                                }
+                              />
+                            </td>
+                          );
+                        })}
+                      </tr>
+                    )) :
+                    <tr><td colSpan={lectureDates.length + 2}>No records available</td></tr>
+                  }
 
-              </tbody>
-            </table>
-          </div>
+                </tbody>
+              </table>
+            </div>
 
-          <button className="btn btn-primary" onClick={handleSubmit}>
-            Submit
-          </button>
-        </div>
-      ) : (
-        <div className='container' style={{ minHeight: '100%' }}>
-          <div className='row'>
-            <h1 className='display-4 text-primary text-center py-md-5 '>No Records to display.</h1>
+            <button className="btn btn-primary" onClick={handleSubmit}>
+              Submit
+            </button>
           </div>
-        </div>
-      )}
+        ) : (
+          <div className='container shadow-none' style={{ minHeight: '100%' }}>
+            <div className='row'>
+              <h1 className='display-4 text-primary text-center py-md-5 '>No Records to display.</h1>
+            </div>
+          </div>
+        )}
     </div>
+    </>
   );
 };
 
