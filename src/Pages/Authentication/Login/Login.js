@@ -343,6 +343,8 @@ const Login = () => {
       
       const cookieUserData = Cookies.get('userData') ? JSON.parse(Cookies.get('userData')) : {};
 
+      console.log('cookieUserData:', cookieUserData);
+
       // Dispatch the setUser action
       if (cookieUserData) {
         dispatch(setUser({
@@ -352,6 +354,8 @@ const Login = () => {
         }));
       }
       
+      console.log('cookieUserData.role:', cookieUserData.role);
+
       const homePath = {
         HOD: '/hod',
         Faculty: '/faculty',
