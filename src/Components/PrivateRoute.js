@@ -86,9 +86,13 @@ const roleHomePaths = {
 const PrivateRoute = ({ allowedRoles }) => {
   const { role } = useSelector((state) => state.auth);
 
+  console.log(role);
+
   if (!role) {
     return <Navigate to="/login" replace />;
   }
+
+  console.log(role+"HI crosed it")
 
   if (!allowedRoles.includes(role)) {
     const homePath = roleHomePaths[role] || '/login';

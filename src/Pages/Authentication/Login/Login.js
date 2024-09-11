@@ -358,6 +358,8 @@ const Login = () => {
         Principal: '/principal'
       }[cookieUserData.role];
 
+      console.log(homePath)
+
       navigate(homePath);
 
     } catch (error) {

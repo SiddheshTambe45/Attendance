@@ -69,6 +69,8 @@ import { faCloud } from '@fortawesome/free-solid-svg-icons';
 
 export default function HomePage() {
 
+    alert("visited faculty and boom back, ig")
+
 //     const [formattedDate, setFormattedDate] = useState('');
 //     const [formattedTime, setFormattedTime] = useState('');
 
