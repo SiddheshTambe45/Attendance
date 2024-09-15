@@ -248,39 +248,7 @@ const AttendanceUpdate = () => {
     });
   };
 
-  /*
-  const handleSubmit = async () => {
-    try {
-      // await axios.put('http://localhost:4545/faculty/updateAttendanceData', {
-      //   semester: semester,
-      //   branch: branch,
-      //   division: division,
-      //   batch: batch,
-      //   subject: subject,
-      //   faculty_id: faculty_id,
-      //   attendance: attendanceRecords
-      // }, {
-      //   withCredentials: true
-      // });
-
-      await axiosInstance.put('/faculty/updateAttendanceData', {
-        semester: semester,
-        branch: branch,
-        division: division,
-        batch: batch,
-        subject: subject,
-        faculty_id: facultyId,
-        attendance: attendanceRecords
-      });
-      // Handle success scenario
-      alert('Attendance records updated successfully!');
-      setAttendanceRecords([]);
-    } catch (error) {
-      // Handle error scenario
-      alert(`Failed to update attendance: ${error.message}`);
-    }
-  };
-  */
+  
 
   const handleSubmit = async () => {
     try {
@@ -321,55 +289,60 @@ const AttendanceUpdate = () => {
   return (
     <>
     <MainNavbar />
+
+
     <div className="container shadow-none" style={{ paddingTop: '20px' }}>
       <div className="row">
-        <div className="col-md-3">
-          <select className="form-select mb-3" value={semester} onChange={handleSemesterChange}>
-            <option value="">Select Semester</option>
+        <div className='d-flex justify-content-between'>
+        <div className="col">
+          <select className="form-select mb-3 rounded-0" value={semester} onChange={handleSemesterChange}>
+            <option value="" className=' rounded-0'>Select Semester</option>
             {semesterOptions.map((item) => (
-              <option key={item.id} value={item.value}>{item.value}</option>
+              <option key={item.id} value={item.value} className='rounded-0'>{item.value}</option>
             ))}
           </select>
         </div>
-        <div className="col-md-3">
-          <select className="form-select mb-3" value={branch} onChange={handleBranchChange} disabled={!semester}>
-            <option value="">Select Branch</option>
+        <div className="col">
+          <select className="form-select mb-3 rounded-0" value={branch} onChange={handleBranchChange} disabled={!semester}>
+            <option value="" className=' rounded-0'>Select Branch</option>
             {branchOptions.map((item) => (
-              <option key={item.id} value={item.value}>{item.value}</option>
+              <option key={item.id} value={item.value} className=' rounded-0'>{item.value}</option>
             ))}
           </select>
         </div>
-        <div className="col-md-3">
-          <select className="form-select mb-3" value={division} onChange={handleDivisionChange} disabled={!branch}>
-            <option value="">Select Division</option>
+        <div className="col">
+          <select className="form-select mb-3 rounded-0" value={division} onChange={handleDivisionChange} disabled={!branch}>
+            <option value="" className=' rounded-0'>Select Division</option>
             {divisionOptions.map((item) => (
-              <option key={item.id} value={item.value}>{item.value}</option>
+              <option key={item.id} value={item.value} className=' rounded-0'>{item.value}</option>
             ))}
           </select>
         </div>
-        <div className="col-md-3">
-          <select className="form-select mb-3" value={subject} onChange={handleSubjectChange} disabled={!division}>
-            <option value="">Select Subject</option>
+        <div className="col">
+          <select className="form-select mb-3 rounded-0" value={subject} onChange={handleSubjectChange} disabled={!division}>
+            <option value="" className=' rounded-0'>Select Subject</option>
             {subjectOptions.map((item) => (
-              <option key={item.id} value={item.value}>{item.value}</option>
+              <option key={item.id} value={item.value} className=' rounded-0'>{item.value}</option>
             ))}
           </select>
         </div>
         {subjectOptions.find(option => option.value === subject)?.type === 'P' && (
-          <div className="col-md-3">
-            <select className="form-select mb-3" value={batch} onChange={handleBatchChange} disabled={!subject}>
-              <option value="">Select Batch</option>
+          <div className="col">
+            <select className="form-select mb-3 rounded-0" value={batch} onChange={handleBatchChange} disabled={!subject}>
+              <option value="" className=' rounded-0'>Select Batch</option>
               {batchOptions.map((item) => (
-                <option key={item.id} value={item.value}>{item.value}</option>
+                <option key={item.id} value={item.value} className=' rounded-0'>{item.value}</option>
               ))}
             </select>
           </div>
         )}
-        <div className="col-md-3">
-          <button className="btn btn-primary mb-3 mt-0" onClick={fetchAttendanceData}>
+        <div className="col d-flex justify-content-end">
+          <button className="btn btn-primary mb-3 mt-0 rounded-0" onClick={fetchAttendanceData}>
             Fetch Attendance
           </button>
         </div>
+        </div>
+
         <div className="col-md-3 ms-auto">
           <label>Enter Date: </label>
           <input
@@ -453,3 +426,7 @@ const AttendanceUpdate = () => {
 };
 
 export default AttendanceUpdate;
+
+
+
+
