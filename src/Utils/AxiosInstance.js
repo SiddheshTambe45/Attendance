@@ -58,7 +58,7 @@ import axios from 'axios';
 import { encryptData, decryptData } from './cryptoUtils'; // Adjust path as needed
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:4545' /*'https://attendance-backend-gold.vercel.app'*/,
+  baseURL: /* 'http://localhost:4545' */ 'https://attendance-backend-gold.vercel.app',
   withCredentials: true, // Ensure cookies are sent with requests
 });
 
