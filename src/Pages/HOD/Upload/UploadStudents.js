@@ -30,6 +30,7 @@ const UploadStudents = () => {
       // const response = await axios.get('http://localhost:4545/hod/getSemestersAndDivisions', { params: { department: hodDepartment },withCredentials: true });
 
       const response = await axiosInstance.get('/hod/getSemestersAndDivisions', { params: { department: hodDepartment }});
+      console.log(response)
       setSemesterOptions(response.data.semesters);
       setDivisionOptions(response.data.divisions[response.data.semesters[0]]); // Assuming the first semester for initial load
     } catch (error) {
@@ -155,6 +156,7 @@ const UploadStudents = () => {
   };
 
   return (
+    <div className='UploadStudentsHOD' id='UploadStudentsHOD'>
     <div className="container mt-4">
       <div className="row">
         <div className="col">
@@ -184,7 +186,7 @@ const UploadStudents = () => {
             onChange={(e) => setSelectedDivision(e.target.value)}
           >
             <option value="">Select Division</option>
-            {divisionOptions.map((division) => (
+            {divisionOptions && divisionOptions.map((division) => (
               <option key={division} value={division}>
                 {division}
               </option>
@@ -268,6 +270,7 @@ const UploadStudents = () => {
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 };

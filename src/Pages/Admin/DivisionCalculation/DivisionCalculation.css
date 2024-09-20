@@ -1,4 +1,4 @@
-.division-box {
+.DivisionCalculationAdmin .division-box {
     display: grid;
     grid-template-columns: repeat(3, minmax(2rem, 1fr));
     gap: 0.5rem;
@@ -7,7 +7,7 @@
     min-height: 2rem;
 }
 
-.division-input {
+.DivisionCalculationAdmin .division-input {
     width: 100%;
     text-align: center;
     box-sizing: border-box;

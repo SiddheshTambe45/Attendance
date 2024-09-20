@@ -7,7 +7,7 @@ export default function HomePage() {
    
 
   return (
-    <div>
+    <div className='HomePageAdmin' id='HomePageAdmin'>
         <div className='container' style={{minHeight:'100vh', height:'auto'}}>
             <div className='row'>
                 <h2 className='text-center'>

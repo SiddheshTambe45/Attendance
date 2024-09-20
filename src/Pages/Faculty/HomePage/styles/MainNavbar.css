@@ -1,3 +1,16 @@
+/* General navbar styling */
+.mainNavbar .navbar-row {
+    height: 200px; /* Height for extra-large (XL) screens */
+    border-bottom: 1px solid black;
+}
+
+.mainNavbar .img-logo {
+    height: 150px;
+}
+
+.mainNavbar .sentence-text {
+    font-size: 3rem; /* Default font size for XL and larger screens */
+}
 
 .mainNavbar .hidden {
     height: 0;
@@ -8,7 +21,60 @@
 
 .mainNavbar .visible {
     height: 600px;
-    /* Set this to the height of your content */
+    opacity: 1;
+    transition: height 0.5s ease, opacity 0.5s ease;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1200px) {
+    .mainNavbar .navbar-row {
+        height: 150px; /* Height for smaller than XL screens */
+    }
+
+    .mainNavbar .img-logo {
+        height: 120px;
+    }
+
+    .mainNavbar .sentence-text {
+        font-size: 2rem; /* Font size for smaller screens */
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .mainNavbar .nav-1, .mainNavbar .nav-3 {
+        order: 1;
+        flex-basis: 50%;
+        max-width: 50%;
+    }
+    
+    .mainNavbar .nav-2 {
+        order: 2;
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+}
+
+.mainNavbar .nav-1, .mainNavbar .nav-2, .mainNavbar .nav-3 {
+    order: 1;
+}
+
+.menu-icon {
+    height: 100px;
+}
+
+
+/*
+
+
+.mainNavbar .hidden {
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: height 0.5s ease, opacity 0.5s ease;
+}
+
+.mainNavbar .visible {
+    height: 600px;
     opacity: 1;
     transition: height 0.5s ease, opacity 0.5s ease;
 }
@@ -27,5 +93,7 @@
 }
 
 .mainNavbar .nav-1, .mainNavbar .nav-2, .mainNavbar .nav-3 {
-    order: 1; /* Default order for larger screens */
+    order: 1; 
 }
+
+*/

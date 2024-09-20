@@ -296,7 +296,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="homePageNav">
+    <div className="homePageNav" id='homePageNav'>
       <div className='container-fluid px-5' style={{height:'auto', backgroundColor:''}}>
         <div className='row' style={{borderBottom: '1px solid black'}}>
           <div className='nav-1 col col-lg-3'>

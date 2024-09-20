@@ -1,4 +1,4 @@
-.attendance-table {
+.AttendanceUpdate .attendance-table {
   border-collapse: separate; /* Allows better styling with borders */
   border-spacing: 0;
   width: 100%;
@@ -6,7 +6,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
 }
 
-.attendance-table th, .attendance-table td {
+.AttendanceUpdate .attendance-table th, .attendance-table td {
   text-align: center;
   vertical-align: middle;
   padding: 10px; /* Increase padding for better spacing */
@@ -15,8 +15,8 @@
   transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
-.attendance-table th {
-  background-color: #f9d637 !important; /* Header background color */
+.AttendanceUpdate .attendance-table th {
+  background-color: #ffd103 !important; /* Header background color */
   color: #ffffff; /* Header text color */
   position: sticky;
   top: 0; /* Make header sticky */
@@ -25,11 +25,11 @@
   outline:2px solid black;
 }
 
-.attendance-table td:hover {
+.AttendanceUpdate .attendance-table td:hover {
   background-color: #f1f1f1; /* Light hover effect for cells */
 }
 
-.attendance-table .sticky-col {
+.AttendanceUpdate .attendance-table .sticky-col {
   position: sticky;
   background-color: #f9f9f9; /* Slightly different background to distinguish */
   z-index: 999;
@@ -38,17 +38,17 @@
   outline:2px solid black;
 }
 
-.attendance-table .prn-col {
+.AttendanceUpdate .attendance-table .prn-col {
   left: 0;
   border-right: 1px solid #ddd; /* Consistent border on the right */
 }
 
-.attendance-table .name-col {
+.AttendanceUpdate .attendance-table .name-col {
   left: 150px; /* Ensure this matches the width of the PRN column */
   border-right: 1px solid #ddd; /* Consistent border on the right */
 }
 
-.table-responsive {
+.AttendanceUpdate .table-responsive {
   overflow-x: auto;
   margin-top: 1rem;
   border-radius: 8px;
@@ -56,19 +56,19 @@
   overflow: hidden;
 }
 
-tbody tr:nth-child(odd) {
+.AttendanceUpdate tbody tr:nth-child(odd) {
   background-color: #f7f9fc; /* Slightly different color for odd rows */
 }
 
-tbody tr:nth-child(even) {
+.AttendanceUpdate tbody tr:nth-child(even) {
   background-color: #ffffff; /* White color for even rows */
 }
 
-.outline-class{
+.AttendanceUpdate .outline-class{
   border: 2px solid black !important;
   outline:2px solid black;
 }
 
-.attendance-table td{
+.AttendanceUpdate .attendance-table td{
   outline:2px solid black;
 }

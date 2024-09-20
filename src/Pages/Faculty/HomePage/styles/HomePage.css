@@ -1,0 +1,60 @@
+.HomePageFaculty .SideNav-item {
+  transition: background-color 0.3s ease, border-radius 0.3s ease;
+}
+
+.HomePageFaculty .SideNav-item:hover {
+  background-color: #f0f0f0; /* Light background color on hover */
+  border-radius: 8px; /* Rounded corners for a smoother look */
+}
+
+.HomePageFaculty {
+  display: flex;
+  height: 100vh;
+  overflow: hidden; /* Prevent the entire page from scrolling */
+}
+
+/* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+.HomePageFaculty .col-lg-3 {
+  /* position: fixed; */
+  height: 100vh;
+  overflow-y: scroll; /* Allow scrolling */
+}
+
+
+
+@media screen and (min-width: 992px) {
+  .HomePageFaculty .col-lg-9 {
+  margin-left: 25%; /* Adjust according to the width of the sidebar */
+  padding-left: 2rem; /* Optional: Add some padding */
+  overflow: hidden; /* Prevent scrolling in this section */
+}
+}
+
+
+
+
+
+/* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+.HomePageFaculty .col-lg-3::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
+/* Hide scrollbar for Firefox */
+.HomePageFaculty .col-lg-3 {
+  scrollbar-width: none; /* Hide scrollbar */
+}
+
+/* Hide scrollbar buttons */
+.HomePageFaculty .col-lg-3::-webkit-scrollbar-button {
+  display: none; /* Hide scrollbar buttons */
+}
+
+.HomePageFaculty .navigation{
+  width:300px;
+}
+
+@media screen and (min-width:1200px) {
+  .HomePageFaculty .navigation{
+    width:400px !important;
+  }
+}

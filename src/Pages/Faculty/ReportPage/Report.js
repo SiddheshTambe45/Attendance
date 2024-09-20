@@ -156,6 +156,7 @@ const Report = ({ attendanceData }) => {
   }
 
   return (
+    <div className='ReportFaculty' id='ReportFaculty'>
     <div className="container mt-4 shadow-none">
       <div className="row justify-content-center">
         <div className="col-12">
@@ -258,6 +259,7 @@ const Report = ({ attendanceData }) => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

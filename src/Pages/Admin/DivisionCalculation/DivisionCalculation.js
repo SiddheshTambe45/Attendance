@@ -213,6 +213,7 @@ const DivisionCalculation = () => {
     }
 
     return (
+        <div className='DivisionCalculationAdmin' id='DivisionCalculationAdmin'>
         <div className="container mt-4">
             <h2>Division Calculation</h2>
             <div className="mb-4">
@@ -282,6 +283,7 @@ const DivisionCalculation = () => {
                 ))}
                 <button className="btn btn-primary mt-3" onClick={handleSubmit}>Submit</button>
             </div>
+        </div>
         </div>
     );
 };

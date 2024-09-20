@@ -68,12 +68,17 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { decryptData } from '../../Utils/cryptoUtils'; // Adjust the import path as needed
 
+/*
 export const initializeAuth = createAsyncThunk('auth/initializeAuth', async (_, { dispatch }) => {
   const encryptedUserData = localStorage.getItem('userData');
   if (encryptedUserData) {
     try {
       const decryptedUserData = await decryptData(encryptedUserData);
-      const userData = JSON.parse(decryptedUserData);
+      
+      console.log('Decrypted user data:', JSON.stringify(decryptedUserData, null, 2));
+
+      
+      const userData = decryptedUserData;
 
       // Dispatch setUser action with decrypted user data
       dispatch(setUser({
@@ -86,6 +91,7 @@ export const initializeAuth = createAsyncThunk('auth/initializeAuth', async (_, 
     }
   }
 });
+*/
 
 const authSlice = createSlice({
   name: 'auth',
@@ -111,6 +117,29 @@ const authSlice = createSlice({
       // Handle fulfilled state if needed
     });
   },
+});
+
+export const initializeAuth = createAsyncThunk('auth/initializeAuth', async (_, { dispatch }) => {
+  const encryptedUserData = localStorage.getItem('userData');
+  if (encryptedUserData) {
+    try {
+      const decryptedUserData = await decryptData(encryptedUserData);
+      
+      console.log('Decrypted user data:', JSON.stringify(decryptedUserData, null, 2));
+
+      
+      const userData = decryptedUserData;
+
+      // Dispatch setUser action with decrypted user data
+      dispatch(setUser({
+        facultyId: userData.facultyId,
+        department: userData.department,
+        role: userData.role
+      }));
+    } catch (error) {
+      console.error('Failed to decrypt user data:', error);
+    }
+  }
 });
 
 export const { setUser, clearUser } = authSlice.actions;

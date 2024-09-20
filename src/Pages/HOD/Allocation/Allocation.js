@@ -267,6 +267,7 @@ const Allocation = () => {
   const filteredBatches = currentSemester && selectedDivision ? (batches[currentSemester]?.[selectedDivision] || []) : [];
 
   return (
+    <div className='AllocationHOD' id='AllocationHOD'>
     <div className="container mt-5">
       <h1 className="mb-4 text-center">Department Allocation</h1>
       <div className="row mb-3">
@@ -464,6 +465,7 @@ const Allocation = () => {
         <button className="btn btn-primary" onClick={applyChanges} style={{marginRight: '20px'}}>Apply Changes</button>
         <button className="btn btn-secondary ml-2" onClick={resetForm}>Reset</button>
       </div>
+    </div>
     </div>
   );
 };

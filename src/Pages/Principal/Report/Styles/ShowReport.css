@@ -1,50 +1,50 @@
-.container {
+.ShowReportPrincipal .container {
   margin: 0 auto;
   max-width: 1200px;
 }
 
-.table-responsive {
+.ShowReportPrincipal .table-responsive {
   margin-top: 20px;
 }
 
-.table {
+.ShowReportPrincipal .table {
   border-collapse: collapse;
   width: 100%;
 }
 
-.table th,
-.table td {
+.ShowReportPrincipal .table th,
+.ShowReportPrincipal .table td {
   padding: 12px;
   text-align: center;
   border: 1px solid #ddd;
 }
 
-.table thead th {
+.ShowReportPrincipal .table thead th {
   background-color: #f4f4f4;
 }
 
-.thead-dark th {
+.ShowReportPrincipal .thead-dark th {
   background-color: #343a40;
   color: white;
 }
 
-.subjects-row {
+.ShowReportPrincipal .subjects-row {
   font-weight: bold;
 }
 
-.input-group {
+.ShowReportPrincipal .input-group {
   margin-bottom: 1rem;
 }
 
-input[type="text"] {
+.ShowReportPrincipal input[type="text"] {
   width: 100%;
 }
 
-.input-group-text {
+.ShowReportPrincipal .input-group-text {
   background-color: #007bff;
   color: white;
 }
 
-.btn {
+.ShowReportPrincipal .btn {
   margin-top: 1rem;
 }

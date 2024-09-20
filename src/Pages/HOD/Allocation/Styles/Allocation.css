@@ -1,5 +1,5 @@
 /* Container Styles */
-.container {
+.AllocationHOD .container {
   max-width: 1000px;
   margin: auto;
   background: #ffffff; /* Lighter background for better contrast */
@@ -9,7 +9,7 @@
 }
 
 /* Header Styles */
-h1 {
+.AllocationHOD h1 {
   color: #333;
   font-family: 'Helvetica Neue', Arial, sans-serif;
   font-weight: 600;
@@ -18,7 +18,7 @@ h1 {
 }
 
 /* Table Container Styles */
-.table-responsive {
+.AllocationHOD .table-responsive {
   margin-top: 20px;
   border-radius: 5px;
   overflow-x: auto;
@@ -26,25 +26,25 @@ h1 {
 }
 
 /* Table Styles */
-.table {
+.AllocationHOD .table {
   width: 100%;
   min-width: 600px;
   border-collapse: collapse; /* Ensure the table cells share borders */
 }
 
-.table th, .table td {
+.AllocationHOD .table th, .AllocationHOD .table td {
   vertical-align: middle;
   padding: 12px 15px; /* Add padding for better spacing */
   border-bottom: 1px solid #ddd; /* Bottom border for separation */
 }
 
-.table th {
+.AllocationHOD .table th {
   background-color: #f4f4f4; /* Light background for table header */
   font-weight: 600;
 }
 
 /* Button Styles */
-.btn {
+.AllocationHOD .btn {
   margin-top: 10px;
   background-color: #007bff; /* Primary button color */
   color: #fff;
@@ -55,12 +55,12 @@ h1 {
   transition: background-color 0.3s ease; /* Smooth transition for hover */
 }
 
-.btn:hover {
+.AllocationHOD .btn:hover {
   background-color: #0056b3; /* Darker shade on hover */
 }
 
 /* Select Styles */
-.form-select {
+.AllocationHOD .form-select {
   width: 100%;
   max-width: 200px;
   padding: 8px 10px;
@@ -69,26 +69,26 @@ h1 {
   transition: border-color 0.3s ease; /* Smooth transition for focus */
 }
 
-.form-select:focus {
+.AllocationHOD .form-select:focus {
   border-color: #007bff; /* Change border color on focus */
 }
 
 /* Actions Section Styles */
-.actions {
+.AllocationHOD .actions {
   margin-bottom: 20px; /* Space below the action buttons */
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-  .container {
+  .AllocationHOD .container {
     padding: 15px;
   }
 
-  .table {
+  .AllocationHOD .table {
     min-width: 100%; /* Adjust table for smaller screens */
   }
 
-  .form-select {
+  .AllocationHOD .form-select {
     max-width: 100%; /* Ensure select dropdown is responsive */
   }
 }
@@ -130,7 +130,7 @@ h1 {
 */
 
 /* Modal Styles */
-.modal {
+.AllocationHOD .modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -143,7 +143,7 @@ h1 {
   z-index: 1000;
 }
 
-.modal-content {
+.AllocationHOD .modal-content {
   background: #ffffff;
   padding: 20px;
   border-radius: 10px;
@@ -152,7 +152,7 @@ h1 {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.close {
+.AllocationHOD .close {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -160,24 +160,24 @@ h1 {
   font-size: 20px;
 }
 
-.form-group {
+.AllocationHOD .form-group {
   margin-bottom: 15px;
 }
 
-.form-group label {
+.AllocationHOD .form-group label {
   display: block;
   margin-bottom: 5px;
 }
 
-.form-group input,
-.form-group select {
+.AllocationHOD .form-group input,
+.AllocationHOD .form-group select {
   width: 100%;
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 5px;
 }
 
-.btn-primary {
+.AllocationHOD .btn-primary {
   background-color: #007bff;
   color: #fff;
   padding: 10px 20px;
@@ -187,11 +187,11 @@ h1 {
   transition: background-color 0.3s ease;
 }
 
-.btn-primary:hover {
+.AllocationHOD .btn-primary:hover {
   background-color: #0056b3;
 }
 
-.btn-secondary {
+.AllocationHOD .btn-secondary {
   background-color: #6c757d;
   color: #fff;
   padding: 10px 20px;
@@ -201,6 +201,6 @@ h1 {
   transition: background-color 0.3s ease;
 }
 
-.btn-secondary:hover {
+.AllocationHOD .btn-secondary:hover {
   background-color: #5a6268;
 }

@@ -1,5 +1,5 @@
 /* Container Styles */
-.container {
+.RolesHOD .container {
   max-width: 1000px;
   margin: auto;
   background: #ffffff; /* Lighter background for better contrast */
@@ -9,7 +9,7 @@
 }
 
 /* Header Styles */
-h1 {
+.RolesHOD h1 {
   color: #333;
   font-family: 'Helvetica Neue', Arial, sans-serif;
   font-weight: 600;
@@ -18,7 +18,7 @@ h1 {
 }
 
 /* Table Container Styles */
-.table-responsive {
+.RolesHOD .table-responsive {
   margin-top: 20px;
   border-radius: 5px;
   overflow-x: auto;
@@ -26,25 +26,25 @@ h1 {
 }
 
 /* Table Styles */
-.table {
+.RolesHOD .table {
   width: 100%;
   min-width: 600px;
   border-collapse: collapse; /* Ensure the table cells share borders */
 }
 
-.table th, .table td {
+.RolesHOD .table th, .RolesHOD .table td {
   vertical-align: middle;
   padding: 12px 15px; /* Add padding for better spacing */
   border-bottom: 1px solid #ddd; /* Bottom border for separation */
 }
 
-.table th {
+.RolesHOD .table th {
   background-color: #f4f4f4; /* Light background for table header */
   font-weight: 600;
 }
 
 /* Button Styles */
-.btn {
+.RolesHOD .btn {
   margin-top: 10px;
   background-color: #007bff; /* Primary button color */
   color: #fff;
@@ -55,12 +55,12 @@ h1 {
   transition: background-color 0.3s ease; /* Smooth transition for hover */
 }
 
-.btn:hover {
+.RolesHOD .btn:hover {
   background-color: #0056b3; /* Darker shade on hover */
 }
 
 /* Select Styles */
-.form-select {
+.RolesHOD .form-select {
   width: 100%;
   max-width: 200px;
   padding: 8px 10px;
@@ -69,17 +69,17 @@ h1 {
   transition: border-color 0.3s ease; /* Smooth transition for focus */
 }
 
-.form-select:focus {
+.RolesHOD .form-select:focus {
   border-color: #007bff; /* Change border color on focus */
 }
 
 /* Actions Section Styles */
-.actions {
+.RolesHOD .actions {
   margin-bottom: 20px; /* Space below the action buttons */
 }
 
 /* Align button group to the right */
-.btn-group {
+.RolesHOD .btn-group {
   display: flex;
   justify-content: flex-end; /* Align buttons to the right */
   gap: 10px; /* Space between buttons */
@@ -87,21 +87,21 @@ h1 {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-  .container {
+  .RolesHOD .container {
       padding: 15px;
   }
 
-  .table {
+  .RolesHOD .table {
       min-width: 100%; /* Adjust table for smaller screens */
   }
 
-  .form-select {
+  .RolesHOD .form-select {
       max-width: 100%; /* Ensure select dropdown is responsive */
   }
 }
 
 /* Modal Styles */
-.modal {
+.RolesHOD .modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -114,7 +114,7 @@ h1 {
   z-index: 1000;
 }
 
-.modal-content {
+.RolesHOD .modal-content {
   background: #ffffff;
   padding: 20px;
   border-radius: 10px;
@@ -123,7 +123,7 @@ h1 {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.close {
+.RolesHOD .close {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -131,24 +131,24 @@ h1 {
   font-size: 20px;
 }
 
-.form-group {
+.RolesHOD .form-group {
   margin-bottom: 15px;
 }
 
-.form-group label {
+.RolesHOD .form-group label {
   display: block;
   margin-bottom: 5px;
 }
 
-.form-group input,
-.form-group select {
+.RolesHOD .form-group input,
+.RolesHOD .form-group select {
   width: 100%;
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 5px;
 }
 
-.btn-primary {
+.RolesHOD .btn-primary {
   background-color: #007bff;
   color: #fff;
   padding: 10px 20px;
@@ -158,11 +158,11 @@ h1 {
   transition: background-color 0.3s ease;
 }
 
-.btn-primary:hover {
+.RolesHOD .btn-primary:hover {
   background-color: #0056b3;
 }
 
-.btn-secondary {
+.RolesHOD .btn-secondary {
   background-color: #6c757d;
   color: #fff;
   padding: 10px 20px;
@@ -172,6 +172,6 @@ h1 {
   transition: background-color 0.3s ease;
 }
 
-.btn-secondary:hover {
+.RolesHOD .btn-secondary:hover {
   background-color: #5a6268;
 }

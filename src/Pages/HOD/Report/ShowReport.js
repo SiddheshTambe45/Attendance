@@ -101,6 +101,7 @@ const ShowReport = ({ attendance, loading, error }) => {
   });
 
   return (
+    <div className='ShowReportHOD' id='ShowReportHOD'>
     <div className='container'>
       <div className="row align-items-center mb-4">
         <div className="col-md-4">
@@ -169,6 +170,7 @@ const ShowReport = ({ attendance, loading, error }) => {
           </tbody>
         </table>
       </div>
+    </div>
     </div>
   );
 };

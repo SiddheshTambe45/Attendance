@@ -260,6 +260,7 @@ const StudentDataEntry = () => {
     };
 
     return (
+        <div className='StudentsDataEntry' id='StudentsDataEntry'>
         <div className="container mt-4">
             <h2>Student Data Entry</h2>
             <div className="row mb-3">
@@ -404,6 +405,7 @@ const StudentDataEntry = () => {
                     </p>
                 </div>    
             )}
+        </div>
         </div>
     );
 };

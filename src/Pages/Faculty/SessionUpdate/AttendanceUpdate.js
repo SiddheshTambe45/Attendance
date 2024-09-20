@@ -13,6 +13,8 @@ const AttendanceUpdate = () => {
   // const faculty_id = "F030"; // Replace with actual faculty ID
   const { facultyId } = useSelector((state) => state.auth);
 
+  console.log(facultyId)
+
 
   // States for criteria options
   const [semesterOptions, setSemesterOptions] = useState([]);
@@ -287,7 +289,7 @@ const AttendanceUpdate = () => {
   };
 
   return (
-    <>
+    <div className='AttendanceUpdate' id="AttendanceUpdate">
     <MainNavbar />
 
 
@@ -421,7 +423,7 @@ const AttendanceUpdate = () => {
           </div>
         )}
     </div>
-    </>
+    </div>
   );
 };
 

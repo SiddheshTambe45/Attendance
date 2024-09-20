@@ -1,5 +1,5 @@
 /* Ensure the table has horizontal overflow */
-.table-responsive {
+.ReportFaculty .table-responsive {
   overflow-x: auto;
   width: 100% !important;
   max-height: auto;
@@ -9,7 +9,7 @@
 }
 
 /* Make the PRN and Name columns sticky */
-.sticky-column {
+.ReportFaculty .sticky-column {
   position: -webkit-sticky; /* For Safari */
   position: sticky;
   left: 0;
@@ -19,89 +19,89 @@
   outline: 3px solid #dee2e6; /* Add an outline for better visibility */
 }
 
-.prn-col {
+.ReportFaculty .prn-col {
   min-width: 150px; /* Adjust according to your column width */
   padding: 8px; /* Add padding to maintain space */
 }
 
-.name-col {
+.ReportFaculty .name-col {
   min-width: 200px; /* Adjust according to your column width */
   padding: 8px; /* Add padding to maintain space */
   left: 150px; /* Adjust according to your column width */
 }
 
 /* Ensure the table header cells are also sticky */
-thead .sticky-column {
+.ReportFaculty thead .sticky-column {
   top: 0;
   z-index: 3; /* Ensure header is above body cells */
 }
 
 /* Ensure borders remain visible in both thead and tbody */
-thead th,
-tbody td {
+.ReportFaculty thead th,
+.ReportFaculty tbody td {
   border: 1px solid #dee2e6;
 }
 
 /* Style the search input and filters */
-.input-group.mb-3 {
+.ReportFaculty .input-group.mb-3 {
   width: 100%; /* Adjust the width to your liking */
   margin: 20px auto; /* Add some margin for better placement */
   box-shadow: 0 0 10px rgb(247, 244, 244); /* Add a subtle shadow */
 }
 
-.input-group-text {
+.ReportFaculty .input-group-text {
   padding: 10px; /* Add some padding for better spacing */
   font-size: 16px; /* Adjust the font size to your liking */
   color: #495057; /* Adjust the color to your liking */
 }
 
-.input-group-text i {
+.ReportFaculty .input-group-text i {
   font-size: 18px; /* Adjust the font size to your liking */
 }
 
 /* Style for absence cells */
-.absent {
+.ReportFaculty .absent {
   background-color: #f8d7da !important; /* Red background color */
 }
 
 /* Styles for print */
 @media print {
-  .table-responsive {
+  .ReportFaculty .table-responsive {
     overflow: visible !important;
   }
 
-  table {
+  .ReportFaculty table {
     width: 100%;
     border-collapse: collapse;
     page-break-inside: auto;
   }
 
-  tr {
+  .ReportFaculty tr {
     page-break-inside: avoid;
     page-break-after: auto;
   }
 
-  th, td {
+  .ReportFaculty th, .ReportFaculty td {
     border: 1px solid #000;
     padding: 5px;
     text-align: left;
     page-break-inside: avoid;
   }
 
-  .sticky-column {
+  .ReportFaculty .sticky-column {
     background-color: #fff !important;
     -webkit-print-color-adjust: exact;
   }
 
-  thead {
+  .ReportFaculty thead {
     display: table-header-group;
   }
 
-  tbody {
+  .ReportFaculty tbody {
     display: table-row-group;
   }
 
-  tfoot {
+  .ReportFaculty tfoot {
     display: table-footer-group;
   }
 }

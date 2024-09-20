@@ -543,6 +543,7 @@ const Roles = () => {
   };
 
   return (
+    <div className='RolesHOD' id='RolesHOD'>
     <div className="container mt-5">
       <h1 className="mb-4 text-center">Department Faculty</h1>
 
@@ -634,6 +635,7 @@ const Roles = () => {
       )}
 
       <button className="btn btn-primary mt-3" onClick={applyChanges}>Apply Changes</button>
+    </div>
     </div>
   );
 };

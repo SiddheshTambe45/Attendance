@@ -1,6 +1,6 @@
 /* Show.css */
 
-.table-responsive {
+.ShowReportHOD .table-responsive {
     overflow-x: auto;
     width: 100% !important;
     max-height: 480px; /* Adjust the height to be roughly 9 rows tall */
@@ -8,8 +8,8 @@
     outline: 1px solid #dee2e6;
   }
   
-  .prn-col,
-  .name-col {
+  .ShowReportHOD .prn-col,
+  .ShowReportHOD .name-col {
     position: sticky;
     left: 0;
     background-color: #f8f9fa;
@@ -21,13 +21,13 @@
     background-color: lightgray !important;
   }
   
-  .name-col {
+  .ShowReportHOD .name-col {
     min-width: 200px; /* Adjust width as needed */
     left: 150px;
   }
   
-  thead .prn-col,
-  thead .name-col {
+  .ShowReportHOD thead .prn-col,
+  .ShowReportHOD thead .name-col {
     position: sticky;
     top: 0;
     background-color: #f8f9fa;
@@ -37,7 +37,7 @@
     background-color: orange !important;
   }
   
-  .subjects-row {
+  .ShowReportHOD .subjects-row {
     position: sticky;
     top: 0;
     background-color: #f8f9fa;
@@ -46,7 +46,7 @@
     outline: 1px solid #dee2e6;
   }
   
-  .subjects-row th {
+  .ShowReportHOD .subjects-row th {
     border: 1px solid #dee2e6;
     padding: 8px;
     outline: 1px solid #dee2e6;
@@ -54,83 +54,83 @@
     width: 150px; /* Set a fixed width for subject headers */
   }
   
-  .sub-columns {
+  .ShowReportHOD .sub-columns {
     position: sticky;
     top: 42px; /* Adjust as needed */
     background-color: #f8f9fa;
     border: 1px solid #dee2e6;
   }
   
-  .sub-columns th {
+  .ShowReportHOD .sub-columns th {
     border: 1px solid #dee2e6;
     padding: 8px;
     background-color: lightgray !important;
     width: 75px; /* Set a fixed width for sub-columns */
   }
   
-  thead th,
-  tbody td {
+  .ShowReportHOD thead th,
+  .ShowReportHOD tbody td {
     border: 1px solid #dee2e6;
     padding: 8px;
     outline: 1px solid #dee2e6;
   }
   
-  .input-group.mb-3 {
+  .ShowReportHOD .input-group.mb-3 {
     width: 100%;
     margin: 20px auto;
   }
   
-  .input-group-append {
+  .ShowReportHOD .input-group-append {
     color: #007bff;
     border-left: none;
   }
   
-  .input-group-text {
+  .ShowReportHOD .input-group-text {
     padding: 10px;
     font-size: 16px;
     color: #ffffff; /* White text color */
   }
   
-  .input-group-text i {
+  .ShowReportHOD .input-group-text i {
     font-size: 18px;
     color: #ffffff; /* White icon color */
   }
   
-  .table thead tr.sub-columns {
+  .ShowReportHOD .table thead tr.sub-columns {
     border-bottom: 2px solid #dee2e6;
   }
   
-  .table th {
+  .ShowReportHOD .table th {
     text-align: center;
   }
   
-  .confirm-button-container {
+  .ShowReportHOD .confirm-button-container {
     text-align: right;
     margin-top: 10px; /* Adjust margin as needed */
   }
   
   @media print {
-    .printable {
+    .ShowReportHOD .printable {
       overflow: visible !important;
       max-height: none !important;
       width: auto !important; /* Allow table to adjust its width for printing */
     }
   
-    .table-responsive {
+    .ShowReportHOD .table-responsive {
       overflow: visible !important;
       width: auto !important; /* Allow full table width in print */
     }
   
-    .table-bordered {
+    .ShowReportHOD .table-bordered {
       border: 1px solid #dee2e6; /* Ensure borders are visible in print */
     }
   
-    .sub-columns.sticky-row {
+    .ShowReportHOD .sub-columns.sticky-row {
       position: relative; /* Ensure sticky header remains visible in print */
       z-index: 10; /* Ensure sticky header appears above content */
     }
   
-    .table-scroll {
+    .ShowReportHOD .table-scroll {
       width: auto !important; /* Allow table to adjust its width */
       table-layout: auto !important; /* Ensure table layout adjusts */
     }
